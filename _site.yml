@@ -1,11 +1,13 @@
-name: "MyLabJournal"
+name: "Niko Amber Criminology"
 navbar:
-  title: "MyLabJournal"
+  title: "Niko Amber Criminology"
   left:
     - text: "Home"
       href: index.html
-    - text: "Journal"
-      href: Journal.html
+    - text: "R Basics"
+      href: RBasics.html
+    - text: "Assignments"
+      href: Assignments.html
     - text: "Links"
       href: Links.html
 output_dir: "docs"
