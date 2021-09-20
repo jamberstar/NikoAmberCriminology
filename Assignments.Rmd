@@ -11,37 +11,11 @@ output:
     toc: no
     toc_depth: '1'
 ---
-
-
-This page will contain all the assignments you submit for the class.
-
-
-
-### Instructions for all assignments
-
-I want you to submit your assignment as a PDF, so I can keep a record of what the code looked like that day. I also want you to include your answers on your personal GitHub website. This will be good practice for editing your website and it will help you produce something you can keep after the class is over.
-
-1. Download the Assignment1.Rmd file from Canvas. You can use this as a template for writing your answers. It's the same as what you can see on my website in the Assignments tab. Once we're done with this I'll edit the text on the website to include the solutions.
-
-2. On RStudio, open a new R script in RStudio (File > New File > R Script). This is where you can test out your R code. You'll write your R commands and draw plots here.
-
-3. Once you have finalized your code, copy and paste your results into this template (Assignment 1.Rmd). For example, if you produced a plot as the solution to one of the problems, you can copy and paste the R code in R markdown by using the ` ``{r} ``` ` command. Answer the questions in full sentences and Save.
-
-4. Produce a PDF file with your answers. To do this, knit to PDF (use Knit button at the top of RStudio), locate the PDF file in your docs folder (it's in the same folder as the Rproj), and submit that on on Canvas in Assignment 1.
-
-5. Build Website, go to GitHub desktop, commit and push. Now your solutions should be on your website as well.
-
-
-
-
-
+Niko Amber Assignments!
 
 # Assignment 1
-
-**Collaborators: Lorem Ipsum. **
-
-This assignment is due on Canvas on Monday 9/20 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
-
+ 
+**Collaborators: Eliza Epstein. **
 
 ### Problem 1 
 
@@ -51,15 +25,20 @@ Install the datasets package on the console below using `install.packages("datas
 
 ```
 
+Answer: I've loaded the library!
+
 Load the USArrests dataset and rename it `dat`. Note that this dataset comes with R, in the package datasets, so there's no need to load data from your computer. Why is it useful to rename the dataset?
 
 ```{r}
-
+dat <- USArrests
 ```
+
+Answer: It is beneficial to rename the data set, so we can replicate analyses without disturbing the 
+original data set. Additionally, it is nice to rename your data set to know exactly it is called
 
 ### Problem 2
 
-Use this command to make the state names into a new variable called State. 
+First I am making states lowercarse, to be used as variables later.
 
 ```{r, eval=FALSE}
 dat$state <- tolower(rownames(USArrests))
@@ -70,58 +49,93 @@ This dataset has the state names as row names, so we just want to make them into
 
 List the variables contained in the dataset `USArrests`.
 
+The variables contained in the dataset 'USArrests' are Murder, Assault, and Rape. Additionally, the data set shows us what percentage of people live in urban areas.
 ```{r}
-
+USArrests
 ```
 
 ### Problem 3 
 
 What type of variable (from the DVB chapter) is `Murder`? 
 
-Answer: 
+Answer: Murder is a categorical variable, it is one of many catagories that crime falls into.
+It is not ordinal, there is no ordering of crime.
 
 What R Type of variable is it?
 
-Answer:
+Answer: 'Murder' is a character variable, it contains information that isn't numeric.
 
 
 ### Problem 4
 
 What information is contained in this dataset, in general? What do the numbers mean? 
 
-Answer: 
+Answer: The Data set USArrests contains data about the rate of arrests for murder, rape and assault per 100,000 residents in each US state in 1973. The data set also includes the percent of the population living in urban cities in each state. The collums represent each type or crime (and urban population percentage) The numbers in each row are the rate of arrests per state (per 100,000).
 
 ### Problem 5
 
-Draw a histogram of `Murder` with proper labels and title.
+Draw a (histogram) bar graph of `Murder` with proper labels and title.
+I used a bar graph instead of a histogram because I feel that is a better way to represent this data.
 
 ```{r}
-
+barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Murder Arrests per 100,000 people",
+        main = "Arrests for Murder in the United States 1973")
 ```
 
 ### Problem 6
 
 Please summarize `Murder` quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?
 
-```{r}
+I used the summary function to gather this information 
 
+```{r}
+summary(USArrests$Murder)
 ```
+
+The mean for murder is 7.788 meaning this is the average rate of people (per 100,000) murdered in each US state in 1973. The median for murder is 7.250 meaning in the United States in 1973 half of the states had a rate per 100,000 more that 7.250 and half had fewer. Median is the middle of numbers in a data set, while mean is the average of all numbers in said set. If the data is evenly distributed the median will equal the mean.
+
+A quartile is when the data is divided into four equal parts: the 1st, 2nd, 3rd, and 4th quartile. R gives the 1st and 3rd quartile because it represents the middle of the data. 1st quartile is lowest 25% and 3rd quartile is highest 25%.
 
 ### Problem 7
 
 Repeat the same steps you followed for `Murder`, for the variables `Assault` and `Rape`. Now plot all three histograms together. You can do this by using the command `par(mfrow=c(3,1))` and then plotting each of the three. 
 
-```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+Note: I used bar graphs
 
+```{r, echo = TRUE, fig.width = 5, fig.height = 8}
+barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Murder Arrests per 100,000 people",
+        main = "Arrests for Murder in the United States 1973")
+#Bar plot for rape arrests
+barplot(USArrests$Rape , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Arrests for Rapes per 100,000 people",
+        main = "Rate of Arrests for Rape in the United States in 1973")
+
+#Bar plot for assault arrests
+barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Arrests for Assault per 100,000",
+        main = "Rate of Arrests for Assaults in the United States")
+
+
+#plotting the graphs together
+
+par(mfrow=c(3,1)) 
+barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Murder Arrests per 100,000 people",
+        main = "Arrests for Murder in the United States 1973")
+#Bar plot for rape arrests
+barplot(USArrests$Rape , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Arrests for Rapes per 100,000 people",
+        main = "Rate of Arrests for Rape in the United States in 1973")
+
+#Bar plot for assault arrests
+barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = "States", ylab = "Rate of Arrests for Assault per 100,000",
+        main = "Rate of Arrests for Assaults in the United States")
+par
 ```
 
 What does the command par do, in your own words (you can look this up by asking R `?par`)?
 
-Answer:
+Answer: This command allows R to set paramaters, this way multiple data sets can be graphed together.
 
-What can you learn from plotting the histograms together?
+What can you learn from bar graphs the histograms together?
 
-Answer:
+Answer: When we plot these bar graphs together we can compare each state's arrest rates for different crimes. For example, when looking at the bar graphs it is easy to see that North Carolina's arrest rate for assault is much higher than the arrest rate for rape. This can lead researchers to ask questions: why were there more arrests for assaults? Were there possible sexually based assault that should have been charged as rape?
   
 ### Problem 8
 
@@ -133,6 +147,7 @@ Run this code:
 library('maps') 
 library('ggplot2') 
 
+#this code creates a map
 ggplot(dat, aes(map_id=state, fill=Murder)) + 
   geom_map(map=map_data("state")) + 
   expand_limits(x=map_data("state")$long, y=map_data("state")$lat)
@@ -140,7 +155,10 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 
 What does this code do? Explain what each line is doing.
 
-Answer:
+Answer: This code creates a colored map that uses our data set to show murder rates. The lighter the blue, the higher the murder rate. 
+
+The first line of code creates a map that is divided by states. TYhe first line also applies the data set to the map, so the color of the state will be lighter if murder rates are higher. The second line of code designs the map by breaking it up by state. The last line of code expands the limits of the map
+
 
 $$\\[2in]$$
 
