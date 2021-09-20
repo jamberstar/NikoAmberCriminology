@@ -502,7 +502,7 @@ barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = &quot;States&qu
 ##         invisible(value)
 ##     else value
 ## }
-## &lt;bytecode: 0x7faeb98ae760&gt;
+## &lt;bytecode: 0x7fee7902df28&gt;
 ## &lt;environment: namespace:graphics&gt;</code></pre>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
 <p>Answer: This command allows R to set paramaters, this way multiple data sets can be graphed together.</p>
@@ -523,6 +523,9 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 <p>What does this code do? Explain what each line is doing.</p>
 <p>Answer: This code creates a colored map that uses our data set to show murder rates. The lighter the blue, the higher the murder rate.</p>
 <p>The first line of code creates a map that is divided by states. TYhe first line also applies the data set to the map, so the color of the state will be lighter if murder rates are higher. The second line of code designs the map by breaking it up by state. The last line of code expands the limits of the map</p>
+<p>Here is my histogram</p>
+<pre class="r"><code>hist(dat$Murder, main = &quot;Murder Rate in The United States in 1973&quot;, xlab = &quot;Murder Rate&quot;, ylab = &quot;Frequency&quot;   )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
 <p><span class="math display">\[\\[2in]\]</span></p>
 </div>
 </div>

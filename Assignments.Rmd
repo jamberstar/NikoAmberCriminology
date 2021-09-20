@@ -159,6 +159,11 @@ Answer: This code creates a colored map that uses our data set to show murder ra
 
 The first line of code creates a map that is divided by states. TYhe first line also applies the data set to the map, so the color of the state will be lighter if murder rates are higher. The second line of code designs the map by breaking it up by state. The last line of code expands the limits of the map
 
+Here is my histogram
+
+```{r}
+hist(dat$Murder, main = "Murder Rate in The United States in 1973", xlab = "Murder Rate", ylab = "Frequency"   )
+```
 
 $$\\[2in]$$
 

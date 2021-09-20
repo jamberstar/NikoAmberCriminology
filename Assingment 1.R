@@ -25,7 +25,7 @@ Murder is a nlk
 R variable is
 
  
-hist(dat$Murder, main = "Murders in The United States", xlab = "Murders", las=2, ylab = "Frequency"   )
+hist(dat$Murder, main = "Murder Rate in The United States in 1973", xlab = "Murder Rate", ylab = "Frequency"   )
 
 #making a barplot of murders, instead of a histogram
 
