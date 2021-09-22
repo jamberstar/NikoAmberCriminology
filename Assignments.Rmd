@@ -40,7 +40,7 @@ original data set. Additionally, it is nice to rename your data set to know exac
 
 First I am making states lowercarse, to be used as variables later.
 
-```{r, eval=FALSE}
+```{r}
 dat$state <- tolower(rownames(USArrests))
 ```
 
@@ -143,7 +143,7 @@ In the console below (not in text), type `install.packages("maps")` and press En
 
 Run this code:
 
-```{r, eval = FALSE, fig.width = 7.5, fig.height = 4}
+```{r, fig.width = 7.5, fig.height = 4}
 library('maps') 
 library('ggplot2') 
 
