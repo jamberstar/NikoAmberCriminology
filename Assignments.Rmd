@@ -13,7 +13,7 @@ output:
 ---
 Niko Amber Assignments!
 
-# Assignment 1
+# Assignment 1  
  
 **Collaborators: Eliza Epstein. **
 
@@ -172,12 +172,6 @@ $$\\[2in]$$
 
 # Assignment 2 
 
----
-title: "Assignment 2"
-output: html_document
----
-### Assignment 2
-
 ## Problem 1
 ```{r}
 knitr::opts_chunk$set(echo = TRUE)
@@ -197,7 +191,7 @@ There are seven columns and 171 rows
 
 ## Problem 2
 
-Describe the variables in the dataset.
+###Describe the variables in the dataset.
 
 The variables in the data are:
 
@@ -215,20 +209,20 @@ SEXATRACT which is who participants of the study are attracted to. It is a categ
 
 SPEAKENGL which is how well do participants speak English. It is a categorical, ordinal variable. Participants rate on a scale of 1-4 where 1 is speaking English well and 4 is not at all.
   
-# What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
+### What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?
 
 This data set is a sample form a 2019 survey taken by the National Survey of Drug Use and Health. This data is only a sample of the survey and has the first 1000 values, and does not include missing values. The data is a random sampling of the US population, and it can be used to tell us more about the US population and their relationship with drugs.
 
 ## Problem 3: Age and gender
 
-# What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
+### What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
 ```{r}
 hist(dat$age2, main= "Histogram of ages of participants of 2019 NSDUH survey", xlab= "Ages in Groups", ylab= "Frequency" )
 ```
 
 ## Problem 3: Age and gender
 
-# What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
+### What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.
 
 ```{r}
 hist(dat$age2, main= "Histogram of ages of participants of 2019 NSDUH survey", xlab= "Ages in Groups", ylab= "Frequency" )
@@ -236,18 +230,18 @@ hist(dat$age2, main= "Histogram of ages of participants of 2019 NSDUH survey", x
 ```
 The age distribution is from ages 12-65+. As mentioned in the code book, it is grouped in sections. but not every group holds the same number of years. Because of this it is difficult to see the age distribution properly. While it appears that most participants are in group 15, group 15 has ages 35-49 (14 years) while groups 1-9 only have one year.
 
-# Do you think this age distribution representative of the US population? Why or why  not?
+### Do you think this age distribution representative of the US population? Why or why  not?
 
 Because of the way the ages are grouped together, this histogram is left skewed. However, there are no respondents below the age of 12, which makes sense given the content of this survey. There are also very few older participants. Therefore this data is probably a good representation of the US population for the purposes of this study, but obviously is not representative of the entire US population.
 
-# Is the sample balanced in terms of gender? If not, are there more females or males?
+### Is the sample balanced in terms of gender? If not, are there more females or males?
 
 ```{r}
 table(dat$irsex)
 ```
 There are more males than females in this sample. It is not representative of the US population, because in the population there are slightly more women then men. This scale is also on a bianary, when there are many people in the United States who may not identify with one of these two genders. According to the code book, the entire data set has more females then males, but in these 1000 data points, there are more males then females.
 
-# Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
+### Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?
 
 ```{r}
 tab.agesex <- table(dat$irsex, dat$age2)
@@ -263,7 +257,7 @@ In the age category 15, that represents respondents between 35 and 49 and 26-29,
 
 ## Problem 4: Substance use
 
-# For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
+### For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?
 
 ```{r}
 par(mfrow=c (1,1))
@@ -278,7 +272,7 @@ People in the survey tended to use alcohol earlier than other substances. This c
 
 ## Problem 5: Sexual attraction
 
-# What does the distribution of sexual attraction look like? Is this what you expected?
+### What does the distribution of sexual attraction look like? Is this what you expected?
 
 ```{r}
 counts <- table(dat$sexatract)
@@ -286,7 +280,7 @@ barplot(counts, main= "Sexual Attraction Preferences Based on Small Sample from 
 ```
 According to this bargraph, most people answered 1, which indicates preference for the opposite sex.This does not surprise me, as most people in the United States are heterosexual, however I would expect more people to answer 3 or 5.
 
-# What is the distribution of sexual attraction by gender? 
+### What is the distribution of sexual attraction by gender? 
 
 ```{r}
 counts <- table(dat$irsex, dat$sexatract)
@@ -297,7 +291,7 @@ Group 1, which is heterosexual, is mainly composed of males. While group 3, whic
 
 ## Problem 6: English speaking
 
-# What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
+### What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?
 
 ```{r}
 counts <- table(dat$speakengl)
@@ -306,7 +300,7 @@ barplot(counts, main= "How Well Sample of Respondents of NSDUH 2019 Speak Englis
 
 Most participants speak English very well, very few speak well and almost none speak not well or none at all. If this survey was only given out in English, this distribution makes sense. But in the US population, while the majority of people speak English, many do not speak it "very well."
 
-#Are there more English speaker female or males?
+### Are there more English speaker female or males?
 
 ```{r}
 counts <- table(dat$irsex, dat$speakengl)
@@ -318,9 +312,9 @@ barplot(counts, main= "How Well Sample of Respondents of NSDUH 2019 Speak Englis
 There are a similar number of males and females who speak English "very well" There are many more females who speak English "Well," so overall there are more females then males who speak English. 
   
   
-#Exam 1
+# Exam 1
 
-# Instructions
+## Instructions
 
 a. Create a folder in your computer (a good place would be under Crim 250, Exams). 
 
@@ -336,20 +330,21 @@ head(dat)
 ```
 
 
-# Problem 1 (10 points)
+## Problem 1 (10 points)
 
-a. Describe the dataset. This is the source: https://github.com/washingtonpost/data-police-shootings . Write two sentences (max.) about this.
+### a.Describe the dataset.
+This is the source: https://github.com/washingtonpost/data-police-shootings. Write two sentences (max.) about this.
 
 This data set is data collected by the Washington Post. It gives information about how many fatal shootings there were by an active duty police officer, and gives details about the victim (example: armed or unarmed.)
 
-b. How many observations are there in the data frame?
+### b. How many observations are there in the data frame?
 ```{r}
 nrow(dat)
 
 ```
 There are 6594 observations in the data frame.
 
-c. Look at the names of the variables in the data frame. Describe what "body_camera", "flee", and "armed" represent, according to the codebook. Again, only write one sentence (max) per variable.
+### c. Look at the names of the variables in the data frame. Describe what "body_camera", "flee", and "armed" represent, according to the codebook. Again, only write one sentence (max) per variable.
 ```{r}
 names(dat)
 ```
@@ -358,7 +353,7 @@ names(dat)
 "flee" represents whether or not the victim was moving away from the officers and how they fled.
 "armed" represents whether or not the victim was armed with something the officers belived could inflict harm and specifies what, if anything, the victims were carrying.
 
-d. What are three weapons that you are surprised to find in the "armed" variable? Make a table of the values in "armed" to see the options.
+### d. What are three weapons that you are surprised to find in the "armed" variable? Make a table of the values in "armed" to see the options.
 ```{r}
 table(dat$armed)
 
@@ -366,16 +361,16 @@ table(dat$armed)
 
 I was surprised to find binoculars, air conditioners and a motorcycle, because these are not things that I would typically think of as weapons. I wonder who determined that these items were a threat. 
 
-# Problem 2 (10 points)
+## Problem 2 (10 points)
 
-a. Describe the age distribution of the sample. Is this what you would expect to see?
+### a. Describe the age distribution of the sample. Is this what you would expect to see?
 ```{r}
 hist(dat$age, main= "Frequency of ages of police shooting victims from Washington Post Data", xlab = "Ages of victims" )
 ```
 
 The age distribution is right skewed. This means that most of the victims were younger (20-40) This is what I would expect to see, because police shootings typically happen to people who police "perceive as threats" and very old people typically wont be seen as threats.  
 
-b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.
+### b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.
 ```{r}
 counts <- table(dat$age)
 
@@ -385,7 +380,7 @@ median(counts)
 
 Because this data is right skewed I used a median to find the center of age distribution. Outliers can have more of an impact on the mean, which would not make it as useful as a statistician.
 
-c. Describe the gender distribution of the sample. Do you find this surprising?
+### c. Describe the gender distribution of the sample. Do you find this surprising?
 ```{r}
 table(dat$gender)
 
@@ -394,9 +389,9 @@ table(dat$gender)
 The gender distribution is not even. There are far more men then women. This makes sense because police usually perceive men as more of a threat than women. Additionally, men are arrested more than women overall according to the FBI.
 
 
-# Problem 3 (10 points)
+## Problem 3 (10 points)
 
-a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?
+### a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?
 
 ```{r}
 table(dat$body_camera)
@@ -410,7 +405,7 @@ sum(table(dat$body_camera))
 
 There are many more people who were not wearing body cams then people who were. There were 5684 people not wearing body cams out of the 6594 recorded, which means 86.2 percent of officers did not have their cameras on. I would think that there would be more people wearing body cams in data recorded since 2015, because there has been a big push for more body cams in the recent years. However, many police officers do not turn on their body cameras.
 
-b. In  how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?
+### b. In  how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?
 ```{r}
 table(dat$flee)
 
@@ -422,7 +417,7 @@ table(dat$flee)
 There are 491 pieces of missing data I excluded these from my calculations. I assume this means that the people who collected the data do not know whether the victims fled, but they did not make it clear. Additionally, I am assuming that "other" means people who fled in a different way then car or foot. There are a total of 6103 pieces of data (minus the data that was missing) and there are 845 people who fled on foot, 1058 by car and 248 by other. This means that only 35 percent of victims attempted to flee. I would expect it to be more, because police officers should not have to shoot people who are not fleeing. At the same time, if a victim is fleeing they may not be an imminent danger to a police officer (because they are running, not attacking), so it is possible the officers wouldn't shoot.
 
 
-# Problem 4 (10 points) -  Answer only one of these (a or b).
+## Problem 4 (10 points) -  Answer only one of these (a or __b__).
 
 a. Describe the relationship between the variables "body camera" and "flee" using a stacked barplot. What can you conclude from this relationship? 
 
@@ -437,7 +432,7 @@ a. Describe the relationship between the variables "body camera" and "flee" usin
 
 __Your answer here.__
 
-b. Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship? 
+### b. Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship? 
 
 *Hint 1: The categories along the x-axis are the race categories and the height along the y-axis is age.* 
 
@@ -461,9 +456,9 @@ There is a clear distinction between the median age victims who are white and ev
 
 
 
-# Extra credit (10 points)
+## Extra credit (10 points)
 
-a. What does this code tell us? 
+### a. What does this code tell us? 
 
 ```{r, eval=FALSE}
 mydates <- as.Date(dat$date)
@@ -476,11 +471,11 @@ head(mydates)
 
 This code tells us the number of days of data we have. The data has been being kept since 2015, and it is now 2021. So it makes sense that the data is of 2458 says (6.7 years)
 
-b. On Friday, a new report was published that was described as follows by The Guardian: "More than half of US police killings are mislabelled or not reported, study finds." Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?
+### b. On Friday, a new report was published that was described as follows by The Guardian: "More than half of US police killings are mislabelled or not reported, study finds." Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?
 
 It seems that police killings are underreported in federal data bases. According to the Washington Post Study, the FBI and CDC does not log as many fatal shootings as there actually are. Police killings are most likely under reported because it is a liability to police forces when one of their officers shoots and kills a victim. Additionally, as this data shows, minority victims tend to be younger, which demonstrates possible racial prejudice. Police killings are most likely misreported because people may blame death on other factors than a gun wound. If the cause of death is reported differently, then a victim would not be counted towards a police shooting death.
 
-c. Regarding missing values in problem 4, do you see any? If so, do you think that's all that's missing from the data?
+### c. Regarding missing values in problem 4, do you see any? If so, do you think that's all that's missing from the data?
 
 In problem 4 the missing value is an unknown race. This differs from the race catagory of 'other,' which shows victims who do not identify as one of the specific racial categories laid out by the Washington Post. I assume that there is much more information missing in general. There is missing data about whether victims fled. There are probably many missing values of signs of mental illness, because that is not easy data to collect. Additionally, the data that the Washington Post collected is from many different sources, none of which have all the pieces data they wish to collect. Overall, there is probably a lot of data and variables missing that are important to understanding the full scope of the circumstances of the shooting. This data just shows us a very small lens of information.
 

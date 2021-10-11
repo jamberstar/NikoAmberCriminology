@@ -11,7 +11,7 @@
 
 
 
-<title>Assignment 2</title>
+<title>Assignments</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -341,7 +341,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">Assignment 2</h1>
+<h1 class="title toc-ignore">Assignments</h1>
 
 </div>
 
@@ -502,7 +502,7 @@ barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = &quot;States&qu
 ##         invisible(value)
 ##     else value
 ## }
-## &lt;bytecode: 0x7fd079af1e80&gt;
+## &lt;bytecode: 0x7fca2deefda8&gt;
 ## &lt;environment: namespace:graphics&gt;</code></pre>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
 <p>Answer: This command allows R to set paramaters, this way multiple data sets can be graphed together.</p>
@@ -532,9 +532,6 @@ ggplot(dat, aes(map_id=state, fill=Murder)) +
 </div>
 <div id="assignment-2" class="section level1">
 <h1>Assignment 2</h1>
-<div id="assignment-2-1" class="section level3">
-<h3>Assignment 2</h3>
-</div>
 <div id="problem-1-1" class="section level2">
 <h2>Problem 1</h2>
 <pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
@@ -554,7 +551,7 @@ names(dat)</code></pre>
 </div>
 <div id="problem-2-1" class="section level2">
 <h2>Problem 2</h2>
-<p>Describe the variables in the dataset.</p>
+<p>###Describe the variables in the dataset.</p>
 <p>The variables in the data are:</p>
 <p>MJAGE which is how old the participants are the first time they used marijuana/hashish. It is a quantitative continuous variable.</p>
 <p>CIGAGE which is how old the participants were when they first started smoking cigarettes everyday. It is a quantitative continuous variable.</p>
@@ -563,42 +560,40 @@ names(dat)</code></pre>
 <p>IRSEX which is which sex participants identify as. It is a categorical, nominal variable. Participants can only identify as male or female. which is coded as 1 or 2.</p>
 <p>SEXATRACT which is who participants of the study are attracted to. It is a categorical, nominal variable. Participants identified their sexual preference on a catagory scale of 1-6, but there is no ranking.</p>
 <p>SPEAKENGL which is how well do participants speak English. It is a categorical, ordinal variable. Participants rate on a scale of 1-4 where 1 is speaking English well and 4 is not at all.</p>
-</div>
-</div>
-<div id="what-is-this-dataset-about-who-collected-the-data-what-kind-of-sample-is-it-and-what-was-the-purpose-of-generating-the-data" class="section level1">
-<h1>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</h1>
+<div id="what-is-this-dataset-about-who-collected-the-data-what-kind-of-sample-is-it-and-what-was-the-purpose-of-generating-the-data" class="section level3">
+<h3>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</h3>
 <p>This data set is a sample form a 2019 survey taken by the National Survey of Drug Use and Health. This data is only a sample of the survey and has the first 1000 values, and does not include missing values. The data is a random sampling of the US population, and it can be used to tell us more about the US population and their relationship with drugs.</p>
+</div>
+</div>
 <div id="problem-3-age-and-gender" class="section level2">
 <h2>Problem 3: Age and gender</h2>
-</div>
-</div>
-<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean." class="section level1">
-<h1>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h1>
+<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean." class="section level3">
+<h3>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h3>
 <pre class="r"><code>hist(dat$age2, main= &quot;Histogram of ages of participants of 2019 NSDUH survey&quot;, xlab= &quot;Ages in Groups&quot;, ylab= &quot;Frequency&quot; )</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+</div>
+</div>
 <div id="problem-3-age-and-gender-1" class="section level2">
 <h2>Problem 3: Age and gender</h2>
-</div>
-</div>
-<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean.-1" class="section level1">
-<h1>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h1>
+<div id="what-is-the-age-distribution-of-the-sample-like-make-sure-you-read-the-codebook-to-know-what-the-variable-values-mean.-1" class="section level3">
+<h3>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</h3>
 <pre class="r"><code>hist(dat$age2, main= &quot;Histogram of ages of participants of 2019 NSDUH survey&quot;, xlab= &quot;Ages in Groups&quot;, ylab= &quot;Frequency&quot; )</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-12-1.png" width="672" /> The age distribution is from ages 12-65+. As mentioned in the code book, it is grouped in sections. but not every group holds the same number of years. Because of this it is difficult to see the age distribution properly. While it appears that most participants are in group 15, group 15 has ages 35-49 (14 years) while groups 1-9 only have one year.</p>
 </div>
-<div id="do-you-think-this-age-distribution-representative-of-the-us-population-why-or-why-not" class="section level1">
-<h1>Do you think this age distribution representative of the US population? Why or why not?</h1>
+<div id="do-you-think-this-age-distribution-representative-of-the-us-population-why-or-why-not" class="section level3">
+<h3>Do you think this age distribution representative of the US population? Why or why not?</h3>
 <p>Because of the way the ages are grouped together, this histogram is left skewed. However, there are no respondents below the age of 12, which makes sense given the content of this survey. There are also very few older participants. Therefore this data is probably a good representation of the US population for the purposes of this study, but obviously is not representative of the entire US population.</p>
 </div>
-<div id="is-the-sample-balanced-in-terms-of-gender-if-not-are-there-more-females-or-males" class="section level1">
-<h1>Is the sample balanced in terms of gender? If not, are there more females or males?</h1>
+<div id="is-the-sample-balanced-in-terms-of-gender-if-not-are-there-more-females-or-males" class="section level3">
+<h3>Is the sample balanced in terms of gender? If not, are there more females or males?</h3>
 <pre class="r"><code>table(dat$irsex)</code></pre>
 <pre><code>## 
 ##  1  2 
 ## 91 80</code></pre>
 <p>There are more males than females in this sample. It is not representative of the US population, because in the population there are slightly more women then men. This scale is also on a bianary, when there are many people in the United States who may not identify with one of these two genders. According to the code book, the entire data set has more females then males, but in these 1000 data points, there are more males then females.</p>
 </div>
-<div id="use-this-code-to-draw-a-stacked-bar-plot-to-view-the-relationship-between-sex-and-age.-what-can-you-conclude-from-this-plot" class="section level1">
-<h1>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</h1>
+<div id="use-this-code-to-draw-a-stacked-bar-plot-to-view-the-relationship-between-sex-and-age.-what-can-you-conclude-from-this-plot" class="section level3">
+<h3>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</h3>
 <pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
 barplot(tab.agesex,
         main = &quot;Stacked barchart&quot;,
@@ -607,12 +602,12 @@ barplot(tab.agesex,
         beside = FALSE) # Stacked bars (default)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
 <p>In the age category 15, that represents respondents between 35 and 49 and 26-29, there is about an even distribution between men and women. However, the younger groups tend to have more female participants then male (group 8 does not have any male respondents) and the groups above 15 seerm to have a larger percentage of men.</p>
+</div>
+</div>
 <div id="problem-4-substance-use" class="section level2">
 <h2>Problem 4: Substance use</h2>
-</div>
-</div>
-<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level1">
-<h1>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h1>
+<div id="for-which-of-the-three-substances-included-in-the-dataset-marijuana-alcohol-and-cigarettes-do-individuals-tend-to-use-the-substance-earlier" class="section level3">
+<h3>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</h3>
 <pre class="r"><code>par(mfrow=c (1,1))
 plot(dat$age2, dat$mjage)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
@@ -626,41 +621,46 @@ plot(dat$age2, dat$mjage)</code></pre>
 <pre><code>## [1] 0.07253557</code></pre>
 <pre class="r"><code>plot(dat$age2, dat$iralcage)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-15-3.png" width="672" /> People in the survey tended to use alcohol earlier than other substances. This can be seen by the scatter plots. Additionally, alcohol has the lowest correlation coefficient.</p>
+</div>
+</div>
 <div id="problem-5-sexual-attraction" class="section level2">
 <h2>Problem 5: Sexual attraction</h2>
-</div>
-</div>
-<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level1">
-<h1>What does the distribution of sexual attraction look like? Is this what you expected?</h1>
+<div id="what-does-the-distribution-of-sexual-attraction-look-like-is-this-what-you-expected" class="section level3">
+<h3>What does the distribution of sexual attraction look like? Is this what you expected?</h3>
 <pre class="r"><code>counts &lt;- table(dat$sexatract)
 barplot(counts, main= &quot;Sexual Attraction Preferences Based on Small Sample from NSDUH 2019&quot;, xlab= &quot;Category&quot;, ylab=&quot;Number of Respondents&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-16-1.png" width="672" /> According to this bargraph, most people answered 1, which indicates preference for the opposite sex.This does not surprise me, as most people in the United States are heterosexual, however I would expect more people to answer 3 or 5.</p>
 </div>
-<div id="what-is-the-distribution-of-sexual-attraction-by-gender" class="section level1">
-<h1>What is the distribution of sexual attraction by gender?</h1>
+<div id="what-is-the-distribution-of-sexual-attraction-by-gender" class="section level3">
+<h3>What is the distribution of sexual attraction by gender?</h3>
 <pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
 barplot(counts, main= &quot;Sexual Attraction Preferences Seperated by Gender &quot;, xlab=&quot;Categories&quot;, ylab= &quot;Number of Respondents&quot;)</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
 <p>Group 1, which is heterosexual, is mainly composed of males. While group 3, which is bisexual is completely female. Group 6, which is homosexual, is also completely male.</p>
+</div>
+</div>
 <div id="problem-6-english-speaking" class="section level2">
 <h2>Problem 6: English speaking</h2>
-</div>
-</div>
-<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level1">
-<h1>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h1>
+<div id="what-does-the-distribution-of-english-speaking-look-like-in-the-sample-is-this-what-you-might-expect-for-a-random-sample-of-the-us-population" class="section level3">
+<h3>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</h3>
 <pre class="r"><code>counts &lt;- table(dat$speakengl)
 barplot(counts, main= &quot;How Well Sample of Respondents of NSDUH 2019 Speak English&quot;, xlab=&quot;Categories&quot;, ylab=&quot;Number of Respondents&quot;  )</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
 <p>Most participants speak English very well, very few speak well and almost none speak not well or none at all. If this survey was only given out in English, this distribution makes sense. But in the US population, while the majority of people speak English, many do not speak it “very well.”</p>
-<p>#Are there more English speaker female or males?</p>
+</div>
+<div id="are-there-more-english-speaker-female-or-males" class="section level3">
+<h3>Are there more English speaker female or males?</h3>
 <pre class="r"><code>counts &lt;- table(dat$irsex, dat$speakengl)
 barplot(counts, main= &quot;How Well Sample of Respondents of NSDUH 2019 Speak English Seperated by Gender&quot;, xlab=&quot;Categories&quot;, ylab=&quot;Number of Respondents&quot; )</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-19-1.png" width="672" /></p>
 <p>There are a similar number of males and females who speak English “very well” There are many more females who speak English “Well,” so overall there are more females then males who speak English.</p>
-<p>#Exam 1</p>
 </div>
-<div id="instructions" class="section level1">
-<h1>Instructions</h1>
+</div>
+</div>
+<div id="exam-1" class="section level1">
+<h1>Exam 1</h1>
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
 <ol style="list-style-type: lower-alpha">
 <li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
 <li><p>Download the dataset from the Canvas website (fatal-police-shootings-data.csv) onto that folder, and save your Exam 1.Rmd file in the same folder.</p></li>
@@ -692,21 +692,21 @@ head(dat)</code></pre>
 ## 5       False  -104.692   40.384               True
 ## 6       False   -97.423   35.877               True</code></pre>
 </div>
-<div id="problem-1-10-points" class="section level1">
-<h1>Problem 1 (10 points)</h1>
-<ol style="list-style-type: lower-alpha">
-<li>Describe the dataset. This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a> . Write two sentences (max.) about this.</li>
-</ol>
+<div id="problem-1-10-points" class="section level2">
+<h2>Problem 1 (10 points)</h2>
+<div id="a.describe-the-dataset." class="section level3">
+<h3>a.Describe the dataset.</h3>
+<p>This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a>. Write two sentences (max.) about this.</p>
 <p>This data set is data collected by the Washington Post. It gives information about how many fatal shootings there were by an active duty police officer, and gives details about the victim (example: armed or unarmed.)</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>How many observations are there in the data frame?</li>
-</ol>
+</div>
+<div id="b.-how-many-observations-are-there-in-the-data-frame" class="section level3">
+<h3>b. How many observations are there in the data frame?</h3>
 <pre class="r"><code>nrow(dat)</code></pre>
 <pre><code>## [1] 6594</code></pre>
 <p>There are 6594 observations in the data frame.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Look at the names of the variables in the data frame. Describe what “body_camera”, “flee”, and “armed” represent, according to the codebook. Again, only write one sentence (max) per variable.</li>
-</ol>
+</div>
+<div id="c.-look-at-the-names-of-the-variables-in-the-data-frame.-describe-what-body_camera-flee-and-armed-represent-according-to-the-codebook.-again-only-write-one-sentence-max-per-variable." class="section level3">
+<h3>c. Look at the names of the variables in the data frame. Describe what “body_camera”, “flee”, and “armed” represent, according to the codebook. Again, only write one sentence (max) per variable.</h3>
 <pre class="r"><code>names(dat)</code></pre>
 <pre><code>##  [1] &quot;id&quot;                      &quot;name&quot;                   
 ##  [3] &quot;date&quot;                    &quot;manner_of_death&quot;        
@@ -718,9 +718,9 @@ head(dat)</code></pre>
 ## [15] &quot;longitude&quot;               &quot;latitude&quot;               
 ## [17] &quot;is_geocoding_exact&quot;</code></pre>
 <p>“Body_camera” indicates whether or not the officer was wearing a body camera that may have recorded part of the incident. “flee” represents whether or not the victim was moving away from the officers and how they fled. “armed” represents whether or not the victim was armed with something the officers belived could inflict harm and specifies what, if anything, the victims were carrying.</p>
-<ol start="4" style="list-style-type: lower-alpha">
-<li>What are three weapons that you are surprised to find in the “armed” variable? Make a table of the values in “armed” to see the options.</li>
-</ol>
+</div>
+<div id="d.-what-are-three-weapons-that-you-are-surprised-to-find-in-the-armed-variable-make-a-table-of-the-values-in-armed-to-see-the-options." class="section level3">
+<h3>d. What are three weapons that you are surprised to find in the “armed” variable? Make a table of the values in “armed” to see the options.</h3>
 <pre class="r"><code>table(dat$armed)</code></pre>
 <pre><code>## 
 ##                                                   air conditioner 
@@ -825,36 +825,36 @@ head(dat)</code></pre>
 ##                                1</code></pre>
 <p>I was surprised to find binoculars, air conditioners and a motorcycle, because these are not things that I would typically think of as weapons. I wonder who determined that these items were a threat.</p>
 </div>
-<div id="problem-2-10-points" class="section level1">
-<h1>Problem 2 (10 points)</h1>
-<ol style="list-style-type: lower-alpha">
-<li>Describe the age distribution of the sample. Is this what you would expect to see?</li>
-</ol>
+</div>
+<div id="problem-2-10-points" class="section level2">
+<h2>Problem 2 (10 points)</h2>
+<div id="a.-describe-the-age-distribution-of-the-sample.-is-this-what-you-would-expect-to-see" class="section level3">
+<h3>a. Describe the age distribution of the sample. Is this what you would expect to see?</h3>
 <pre class="r"><code>hist(dat$age, main= &quot;Frequency of ages of police shooting victims from Washington Post Data&quot;, xlab = &quot;Ages of victims&quot; )</code></pre>
 <p><img src="Assignments_files/figure-html/unnamed-chunk-24-1.png" width="672" /></p>
 <p>The age distribution is right skewed. This means that most of the victims were younger (20-40) This is what I would expect to see, because police shootings typically happen to people who police “perceive as threats” and very old people typically wont be seen as threats.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.</li>
-</ol>
+</div>
+<div id="b.-to-understand-the-center-of-the-age-distribution-would-you-use-a-mean-or-a-median-and-why-find-the-one-you-picked." class="section level3">
+<h3>b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.</h3>
 <pre class="r"><code>counts &lt;- table(dat$age)
 
 median(counts)</code></pre>
 <pre><code>## [1] 66.5</code></pre>
 <p>Because this data is right skewed I used a median to find the center of age distribution. Outliers can have more of an impact on the mean, which would not make it as useful as a statistician.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Describe the gender distribution of the sample. Do you find this surprising?</li>
-</ol>
+</div>
+<div id="c.-describe-the-gender-distribution-of-the-sample.-do-you-find-this-surprising" class="section level3">
+<h3>c. Describe the gender distribution of the sample. Do you find this surprising?</h3>
 <pre class="r"><code>table(dat$gender)</code></pre>
 <pre><code>## 
 ##         F    M 
 ##    3  293 6298</code></pre>
 <p>The gender distribution is not even. There are far more men then women. This makes sense because police usually perceive men as more of a threat than women. Additionally, men are arrested more than women overall according to the FBI.</p>
 </div>
-<div id="problem-3-10-points" class="section level1">
-<h1>Problem 3 (10 points)</h1>
-<ol style="list-style-type: lower-alpha">
-<li>How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</li>
-</ol>
+</div>
+<div id="problem-3-10-points" class="section level2">
+<h2>Problem 3 (10 points)</h2>
+<div id="a.-how-many-police-officers-had-a-body-camera-according-to-news-reports-what-proportion-is-this-of-all-the-incidents-in-the-data-are-you-surprised-that-it-is-so-high-or-low" class="section level3">
+<h3>a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</h3>
 <pre class="r"><code>table(dat$body_camera)</code></pre>
 <pre><code>## 
 ## False  True 
@@ -864,9 +864,9 @@ median(counts)</code></pre>
 <pre class="r"><code> 5684/6594</code></pre>
 <pre><code>## [1] 0.8619958</code></pre>
 <p>There are many more people who were not wearing body cams then people who were. There were 5684 people not wearing body cams out of the 6594 recorded, which means 86.2 percent of officers did not have their cameras on. I would think that there would be more people wearing body cams in data recorded since 2015, because there has been a big push for more body cams in the recent years. However, many police officers do not turn on their body cameras.</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>In how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?</li>
-</ol>
+</div>
+<div id="b.-in-how-many-of-the-incidents-was-the-victim-fleeing-what-proportion-is-this-of-the-total-number-of-incidents-in-the-data-is-this-what-you-would-expect" class="section level3">
+<h3>b. In how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?</h3>
 <pre class="r"><code>table(dat$flee)</code></pre>
 <pre><code>## 
 ##                     Car        Foot Not fleeing       Other 
@@ -877,17 +877,17 @@ median(counts)</code></pre>
 <pre><code>## [1] 0.3524496</code></pre>
 <p>There are 491 pieces of missing data I excluded these from my calculations. I assume this means that the people who collected the data do not know whether the victims fled, but they did not make it clear. Additionally, I am assuming that “other” means people who fled in a different way then car or foot. There are a total of 6103 pieces of data (minus the data that was missing) and there are 845 people who fled on foot, 1058 by car and 248 by other. This means that only 35 percent of victims attempted to flee. I would expect it to be more, because police officers should not have to shoot people who are not fleeing. At the same time, if a victim is fleeing they may not be an imminent danger to a police officer (because they are running, not attacking), so it is possible the officers wouldn’t shoot.</p>
 </div>
-<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level1">
-<h1>Problem 4 (10 points) - Answer only one of these (a or b).</h1>
+</div>
+<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level2">
+<h2>Problem 4 (10 points) - Answer only one of these (a or <strong>b</strong>).</h2>
 <ol style="list-style-type: lower-alpha">
 <li>Describe the relationship between the variables “body camera” and “flee” using a stacked barplot. What can you conclude from this relationship?</li>
 </ol>
 <p><em>Hint 1: The categories along the x-axis are the options for “flee”, each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).</em></p>
 <p><em>Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
 <p><strong>Your answer here.</strong></p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship?</li>
-</ol>
+<div id="b.-describe-the-relationship-between-age-and-race-by-using-a-boxplot.-what-can-you-conclude-from-this-relationship" class="section level3">
+<h3>b. Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship?</h3>
 <p><em>Hint 1: The categories along the x-axis are the race categories and the height along the y-axis is age.</em></p>
 <p><em>Hint 2: Also, if you are unsure about the syntax for boxplot, run ?boxplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
 <pre class="r"><code>table(dat$race)</code></pre>
@@ -900,25 +900,27 @@ median(counts)</code></pre>
 <p>NOTE there is missing data. The first bar plot represents “unknown” data. Black= Black Non-Hispanic, White= White, non-Hispanic, NA= Native American</p>
 <p>There is a clear distinction between the median age victims who are white and every other race (excluding unknown). The median age of victims who are white are much higher than the median age of victims of the other races. Additionally, the ages of white victims are much more evenly dispered. The box is close to the middle which shows a more even dispersion, and the box is longer which shows more dispersed data within Q2 and Q3. Native Americans and black victims have the lowest median age, although there are many outliers who are black. This data shows that victims or color tend to be younger than white victims of police shootings.</p>
 </div>
-<div id="extra-credit-10-points" class="section level1">
-<h1>Extra credit (10 points)</h1>
-<ol style="list-style-type: lower-alpha">
-<li>What does this code tell us?</li>
-</ol>
+</div>
+<div id="extra-credit-10-points" class="section level2">
+<h2>Extra credit (10 points)</h2>
+<div id="a.-what-does-this-code-tell-us" class="section level3">
+<h3>a. What does this code tell us?</h3>
 <pre class="r"><code>mydates &lt;- as.Date(dat$date)
 head(mydates)
 (mydates[length(mydates)] - mydates[1])
 
 2458/365</code></pre>
 <p>This code tells us the number of days of data we have. The data has been being kept since 2015, and it is now 2021. So it makes sense that the data is of 2458 says (6.7 years)</p>
-<ol start="2" style="list-style-type: lower-alpha">
-<li>On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?</li>
-</ol>
+</div>
+<div id="b.-on-friday-a-new-report-was-published-that-was-described-as-follows-by-the-guardian-more-than-half-of-us-police-killings-are-mislabelled-or-not-reported-study-finds.-without-reading-this-article-now-due-to-limited-time-why-do-you-think-police-killings-might-be-mislabelled-or-underreported" class="section level3">
+<h3>b. On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?</h3>
 <p>It seems that police killings are underreported in federal data bases. According to the Washington Post Study, the FBI and CDC does not log as many fatal shootings as there actually are. Police killings are most likely under reported because it is a liability to police forces when one of their officers shoots and kills a victim. Additionally, as this data shows, minority victims tend to be younger, which demonstrates possible racial prejudice. Police killings are most likely misreported because people may blame death on other factors than a gun wound. If the cause of death is reported differently, then a victim would not be counted towards a police shooting death.</p>
-<ol start="3" style="list-style-type: lower-alpha">
-<li>Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data?</li>
-</ol>
+</div>
+<div id="c.-regarding-missing-values-in-problem-4-do-you-see-any-if-so-do-you-think-thats-all-thats-missing-from-the-data" class="section level3">
+<h3>c. Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data?</h3>
 <p>In problem 4 the missing value is an unknown race. This differs from the race catagory of ‘other,’ which shows victims who do not identify as one of the specific racial categories laid out by the Washington Post. I assume that there is much more information missing in general. There is missing data about whether victims fled. There are probably many missing values of signs of mental illness, because that is not easy data to collect. Additionally, the data that the Washington Post collected is from many different sources, none of which have all the pieces data they wish to collect. Overall, there is probably a lot of data and variables missing that are important to understanding the full scope of the circumstances of the shooting. This data just shows us a very small lens of information.</p>
+</div>
+</div>
 </div>
 
 
