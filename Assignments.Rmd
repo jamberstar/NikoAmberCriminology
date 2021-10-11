@@ -330,8 +330,6 @@ c. Download the README.md file. This is the codebook.
 
 d. Load the data into an R data frame.
 ```{r}
-
-
 dat <- read.csv(file = 'fatal-police-shootings-data.csv')
 
 head(dat)
