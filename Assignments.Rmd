@@ -480,10 +480,11 @@ It seems that police killings are underreported in federal data bases. According
 In problem 4 the missing value is an unknown race. This differs from the race catagory of 'other,' which shows victims who do not identify as one of the specific racial categories laid out by the Washington Post. I assume that there is much more information missing in general. There is missing data about whether victims fled. There are probably many missing values of signs of mental illness, because that is not easy data to collect. Additionally, the data that the Washington Post collected is from many different sources, none of which have all the pieces data they wish to collect. Overall, there is probably a lot of data and variables missing that are important to understanding the full scope of the circumstances of the shooting. This data just shows us a very small lens of information.
 
 # Assignment 3
+
 ---
 title: "Assignment 3"
 author: "Niko Amber"
-date: 'Today''s date here: 10/28/2021'
+date: 10/28/2021'
 output:
   pdf_document: default
   html_document: default
