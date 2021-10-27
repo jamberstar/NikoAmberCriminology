@@ -479,3 +479,155 @@ It seems that police killings are underreported in federal data bases. According
 
 In problem 4 the missing value is an unknown race. This differs from the race catagory of 'other,' which shows victims who do not identify as one of the specific racial categories laid out by the Washington Post. I assume that there is much more information missing in general. There is missing data about whether victims fled. There are probably many missing values of signs of mental illness, because that is not easy data to collect. Additionally, the data that the Washington Post collected is from many different sources, none of which have all the pieces data they wish to collect. Overall, there is probably a lot of data and variables missing that are important to understanding the full scope of the circumstances of the shooting. This data just shows us a very small lens of information.
 
+# Assignment 3
+---
+title: "Assignment 3"
+author: "Niko Amber"
+date: 'Today''s date here: 10/28/2021'
+output:
+  pdf_document: default
+  html_document: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+I worked with Bella Werneck
+
+This assignment is due on Canvas on Wednesday 10/27/2021 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.
+
+Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.
+
+Save the file (found on Canvas) crime_simple.txt to the same folder as this file (your Rmd file for Assignment 3).
+
+Load the data.
+```{r}
+library(readr)
+library(knitr)
+dat_crime <- read_delim("/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Test Github/crime_simple.txt", delim = "\t")
+
+```
+
+This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given. 
+
+Here is the codebook:
+
+R: Crime rate: # of offenses reported to police per million population
+
+Age: The number of males of age 14-24 per 1000 population
+
+S: Indicator variable for Southern states (0 = No, 1 = Yes)
+
+Ed: Mean of years of schooling x 10 for persons of age 25 or older
+
+Ex0: 1960 per capita expenditure on police by state and local government
+
+Ex1: 1959 per capita expenditure on police by state and local government
+
+LF: Labor force participation rate per 1000 civilian urban males age 14-24
+
+M: The number of males per 1000 females
+
+N: State population size in hundred thousands
+
+NW: The number of non-whites per 1000 population
+
+U1: Unemployment rate of urban males per 1000 of age 14-24
+
+U2: Unemployment rate of urban males per 1000 of age 35-39
+
+W: Median value of transferable goods and assets or family income in tens of $
+
+X: The number of families per 1000 earning below 1/2 the median income
+
+
+We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related. 
+
+
+__1. How many observations are there in the dataset? To what does each observation correspond?__
+
+```{r}
+nrow(dat_crime)
+ncol(dat_crime)
+summary(dat_crime)
+head(dat_crime)
+
+```
+
+There are 47 observations in the data frame. Each row gives the data for each of the 47 states included in this data set. Each of the 47 rows includes data from each state which gives information about the 14 variables explained in the code book.
+
+out 4 variables of data from each state including, level of education, age and whether or not the states are in the South.
+
+__2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?__
+
+```{r, fig.width=6, fig.height=4}
+plot(dat_crime$Ed, dat_crime$R, xlab= "Average Years of Schooling x 10 for people over 25", ylab= "Crime Rate per state According to 1960 UCR Data", main = "Relationship between Level of Education and Crime Rate for 47 states in 1960 ")
+
+head(dat_crime)
+cor(dat_crime$Ed, dat_crime$R)
+```
+
+The correlation efficient is .3228349 which indicates a slight positive relationship between crime rate and level of education. This is not what I would have expected. It is important to note this is correlation not causation, so higher levels of education do not result in more crime. This data includes all crime types. It is possible that there area lot of white collar criminals which typically  that the criminals have higher levels of education. Additionally this data is based on the crime reported, not all crime that has happened which could have an impact on the corelation. The correlation is not strong, but I would like to know why there is a positive correlation at all.
+
+__3. Regress reported crime rate (y) on average education (x) and call this linear model `crime.lm` and write the summary of the regression by using this code, which makes it look a little nicer `{r, eval=FALSE}  summary(crime.lm)$coef, digits = 2)`.__
+
+```{r,} 
+
+lm( formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime) )
+
+lmCrime  <- lm( formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime) )
+summary(lmCrime)
+coef(lmCrime, digit = 2)
+```
+
+__4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)__
+
+```{r} 
+
+plot(dat_crime$Ed, lmCrime$residuals, main= "Residuals vs. X", xlab = "x, Average Years of Schooling x 10 per People Over 25", ylab = "Residuals" )
+abline(h = 0, lty = "dashed")
+
+
+```
+The linearity assumption is satisfied because the residuals vs X plot does not have a pattern around the horizontal line y=0.
+
+```{r} 
+
+plot(lmCrime, which = 1)
+
+```
+The independent assumption is satisfied because not only does the residuals vs X plot not have a pattern around the horizontal line x, also the residuals vs fitted shows no pattern.
+
+```{r} 
+
+plot(lmCrime, which = 3)
+
+```
+
+The equal variance assumption helps us analyze the homoskedasticity assumption, which is satisfied because the red line is close to being horizontal.
+
+```{r}
+plot(lmCrime, which=2)
+
+```
+The normal QQ plot tells us that the normal population is slightly right skewed, there is a light tail, which means the distribution isn't normal.
+
+__5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?__
+
+```{r}
+summary(lmCrime)
+
+```
+
+The p value is less than 0.05 so the relationship between reported crime and average education is stastistically significant. A relationship is statistically significant when you can reject the null hypothesis. 
+
+
+__6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?__
+
+For every unit increase in average education, the crime rate changes 1.1161 per million per state.
+
+__7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?__
+
+No. Correlation does not mean causation. Just because there seems to be a positive corelation between level of education and reported crime rates, does not mean that more education CAUSES more crime.
