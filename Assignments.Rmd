@@ -632,3 +632,139 @@ For every unit increase in average education, the crime rate changes 1.1161 per 
 __7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?__
 
 No. Correlation does not mean causation. Just because there seems to be a positive corelation between level of education and reported crime rates, does not mean that more education CAUSES more crime.
+
+# Exam 2
+
+---
+title: "Exam 2"
+author: "Niko Amber"
+date: "11/01/2021"
+output:
+  html_document: default
+  pdf_document: default
+---
+
+
+a. Create a folder in your computer (a good place would be under Crim 250, Exams). 
+
+b. Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.
+
+c. Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: **"Does having more funding in a police department lead to fewer incidents of police brutality?"**
+d. Codebook:
+- funds: How much funding the police department received in that year in millions of dollars.
+- po.brut: How many incidents of police brutality were reported by the department that year.
+- po.dept.code: Police department code
+
+__Problem 1: EDA (10 points)__
+
+Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.
+
+```{r}
+dat <- read.csv(file = "/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Test Github/sim.data.csv")
+
+names(dat)
+
+summary(dat)
+
+nrow(dat)
+ncol(dat)
+
+head(dat)
+
+hist(dat$funds, main="Histogram of Funds Recived by Police Department (in millions)", xlab= "Amount of funds in millions")
+
+hist(dat$po.brut, main="Histograms of instances of Police Brutality recorded in a year", xlab= "Recorded instances of Police Brutality")
+
+plot(dat$funds, dat$po.brut, main = "Plot of Funds vs Instances of Police Brutality", xlab = "Funds in millions ", ylab = "Recorded instances of Police Brutality")
+
+cor(dat$funds, dat$po.brut)
+
+```
+
+There are 200 observations in this data set which is based on simulated information. There are 3 different variables: funds-the amount of funds the police department receive in a year (in millions), po.brut- how many incidents of police brutality were reported in that year, and po.dept.code- which is the police department code. 
+
+The mean funds (in millions) received by one of the 200 police departments is 61.04 and the median is 59.75. The mean incidences of police brutality recorded is 18.14 and the median is 19.00.
+
+Both funding and number of recorded instances of police brutality are numeric variables. When looking at the histogram of both variables they look normally distributed. Recorded instances of police brutality looks slightly left skewed, although the data set is small so it might not matter.
+
+The plot of funds vs instances looks to have a linear relationship
+
+__Problem 2: Linear regression (30 points)__
+
+_a. Perform a simple linear regression to answer the question of interest. To do this, name your linear model "reg.output" and write the summary of the regression by using "summary(reg.output)"._
+
+```{r}
+
+reg_output <- lm(formula = po.brut ~ funds, data = dat)
+
+summary(reg_output)
+```
+
+
+_b. Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain._
+
+The estimated coefficient is -0.367099, the standard error is 0.282503, and the p-value of the slope is 2.2e-16. The p value is significantly lower that 0.05 so the relationship between funds and instances of police brutality is statistically significant. The null hypothesis is rejected. 
+
+_c. Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:_
+
+```{r, fig.width=4, fig.height=4,}
+
+plot( dat$funds, dat$po.brut, main = "Plot of Funds vs Instances of Police Brutality", xlab = "Funds in millions ", ylab = "Recorded instances of Police Brutality")
+abline(reg_output, col = "red", lwd=2)
+
+```
+__Does the line look like a good fit? Why or why not?__
+
+This line seems to be a good fit, there are some points that are off the line. There does not look to be any extreme outliers. There is a negative correlation between funds and number of instances of police brutality, meaning for lower funds instances of police brutality go down on average, which makes sense because the correlation coefficient is negative. It is important to note that this is a correlation not a causation.
+
+__d. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?__
+
+```{r}
+plot(dat$funds, reg_output$residuals, main= "Residuals vs. X", xlab = "x, Amount of Police funding in millions", ylab = "Residuals" )
+abline(h = 0, lty = "dashed")
+
+plot(reg_output, which = 1)
+
+
+```
+The linearity assumption is not satisfied. There looks to be a pattern around the horizontal line Y=0. There seems to be a curved line. The residuals vs fitted line also has a clear curved line going through the data, rather than flat which further proves the linearity assumption is not satisfied.
+
+```{r}
+plot(dat$funds, reg_output$residuals, main= "Residuals vs. X", xlab = "x, Amount of Police funding in millions", ylab = "Residuals" )
+abline(h = 0, lty = "dashed")
+```
+The independence assumption is not satisfied because there is a clear pattern when plotting the residuals vs X. This most likely means that this is not a random data set.
+
+```{r}
+plot(reg_output, which= 3)
+```
+
+The equal variance assumption is not satisfied. There is a clear trend to the line of this plot, which means that the residuals has a non-constant variance. This means that the data is not homoscedastic, which you can further prove because on the scale location plot the points tend to cluster in one part of the plot.
+
+```{r}
+plot(reg_output, which = 2)
+```
+The normal qq plot tells us that the population in this data set is skewed left, meaning the distrobution isn't normal.
+
+
+If I had more time, I would explore other ways to analyze the data. Perhaps there is not a linear relationship.
+
+__e. Answer the question of interest based on your analysis.__
+
+The question of interest **"Does having more funding in a police department lead to fewer incidents of police brutality?"** is unable to be answered given the data provided. Although the initial scatter plot seems to have a line that is straight, upon further analysis it is clear the assumptions of linear regression are not satisfied. Because of this, we cannot make inferences based on this data.
+
+__Problem 3: Data ethics (10 points)__
+
+Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?
+
+I have concerns about the assumptions that would be made from this data set. The questions the researchers are asking could have serious implications for police departments and their funding, and using this small sample of data is not enough to make an inference. 
+
+It is important to note that the data is from only 200 police stations. This is not enough data to make any inferences. This data should have been taken from all of the police stations. We also do not know which police stations this data was taken from. According to the residuals vs X plot, it is possible that the data set is not random.
+
+It is unethical for this data to be cherry picked, but it is not stated that the data included is random. It should be considered who picked to include this data in the set.
+
+The data does not take into account other factors including who decided to report this information.
+
+If a police department just looks at the scatterplot of the x and y variables, it looks as though there is a linear correlation, and the p value is below 0.05 which would mean that the null hypothesis is rejected. One may read this data and __assume__ that as funding increases, instances of police brutality would go down. Police departments might use this inference to decide the best way to stop police brutality would be to increase funding.
+
+Additionally, all of the assumptions of linear regression are not satisfied, which means you cannot trust the linear relationship found by the scatterplot graph of funds and instances of police brutality.
