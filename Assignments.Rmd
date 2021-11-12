@@ -778,7 +778,7 @@ Additionally, all of the assumptions of linear regression are not satisfied, whi
 
 ## Learning about gg plot
 
-_basics_
+### _basics_
 
 
 ```{r}
@@ -805,7 +805,7 @@ First I used ggplot(data = mpg) to make a wmpty graph. To add to the graph first
 ```
 This is a blank template to use to create a graph in ggplot2. To add titles and axis names add 
 +tit
-_aesthetics_
+### _aesthetics_
 
 ```{r}
 ggplot(data = mpg) + 
@@ -832,7 +832,7 @@ There are other aesthetics you can change the third variable with on a ggplot gr
 
 NOTE: ggplot2 will only use up to six shapes.
 
-_Subplots_
+### _Subplots_
 
 ```{r}
 ggplot(data = mpg) + 
@@ -850,7 +850,7 @@ ggplot(data = mpg) +
 ```
 This function plotted two different variables on a grid. 
 
-_Geometric Objects_
+### _Geometric Objects_
 
 The different visual objects that ggplot2 uses are called geoms. 
 
@@ -902,7 +902,7 @@ ggplot(data = diamonds) +
   )
 ```
 
-_adding color to par charts_
+### _Adding color to par charts_
 ```{r}
 ggplot(data = diamonds) + 
   geom_bar(mapping = aes(x = cut, colour = cut))
@@ -948,7 +948,7 @@ ggplot(data = mpg) +
 
 Position= jitter this adds random noise to each point. Adding randomness to your plot makes it more appealing at large scales.
 
-_Coordinate Systems_
+### _Coordinate Systems_
 
 The default coordinate system in ggplot is cartesian (x,y) sometimes it is useful to change it.
 
@@ -990,7 +990,7 @@ bar + coord_polar()
 
 This uses polar coordinates
 
-__General ggplot format__
+### __General ggplot format__
 
 ggplot(data = <DATA>) + 
   <GEOM_FUNCTION>(
