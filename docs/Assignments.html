@@ -506,7 +506,7 @@ barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = &quot;States&qu
 ##         invisible(value)
 ##     else value
 ## }
-## &lt;bytecode: 0x7fcb35eb1310&gt;
+## &lt;bytecode: 0x7fd3f8d77ae8&gt;
 ## &lt;environment: namespace:graphics&gt;</code></pre>
 <p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
 <p>Answer: This command allows R to set paramaters, this way multiple data sets can be graphed together.</p>
@@ -1372,6 +1372,136 @@ bar + coord_flip()</code></pre>
 <div id="general-ggplot-format" class="section level3">
 <h3><strong>General ggplot format</strong></h3>
 <p>ggplot(data = <DATA>) + <GEOM_FUNCTION>( mapping = aes(<MAPPINGS>), stat = <STAT>, position = <POSITION> ) + <COORDINATE_FUNCTION> + <FACET_FUNCTION></p>
+</div>
+<div id="labeling-in-ggplot" class="section level3">
+<h3><em>Labeling in ggplot</em></h3>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = &quot;Fuel efficiency generally decreases with engine size&quot;,
+    subtitle = &quot;Two seaters (sports cars) are an exception because of their light weight&quot;,
+    caption = &quot;Data from fueleconomy.gov&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>In EDA it is important to label your data. the labs function adds titles. You can also add subtitles and captions, which go at the bottom of the plot.</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = &quot;Engine displacement (L)&quot;,
+    y = &quot;Highway fuel economy (mpg)&quot;,
+    colour = &quot;Car type&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p>The labs function can also be used to change the x and y axis variable names.</p>
+<pre class="r"><code>df &lt;- tibble(
+  x = runif(10),
+  y = runif(10)
+)
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+<p>You can alternatively use math equations instead of labels. To find them look up ?plotmath</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_label(aes(label = model), data = best_in_class, nudge_y = 2, alpha = 0.5)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+</div>
+<div id="annotations" class="section level3">
+<h3><em>annotations</em></h3>
+<p>It is also useful to add annotations to EDA. geom_point() is a way to add text to your graphs. Using nudge_y, you move the labels up a bit so it doesn’t cover the data, alpha makes the labels see through.</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+
+class_avg &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  summarise(
+    displ = median(displ),
+    hwy = median(hwy)
+  )
+#&gt; `summarise()` ungrouping output (override with `.groups` argument)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  ggrepel::geom_label_repel(aes(label = class),
+    data = class_avg,
+    size = 6,
+    label.size = 0,
+    segment.color = NA
+  ) +
+  geom_point() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p>This code removes the legend and puts the label directly on the graph.</p>
+<pre class="r"><code>label &lt;- mpg %&gt;%
+  summarise(
+    displ = max(displ),
+    hwy = max(hwy),
+    label = &quot;Increasing engine size is \nrelated to decreasing fuel economy.&quot;
+  )
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_text(aes(label = label), data = label, vjust = &quot;top&quot;, hjust = &quot;right&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<p>In order to add a single label to the plot, you have to make a data frame. In order for the label to be in the corner, just use the maximin x and y values.</p>
+</div>
+<div id="changing-the-axis" class="section level3">
+<h3><em>Changing the Axis</em></h3>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_y_continuous(breaks = seq(15, 40, by = 5))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_x_continuous(labels = NULL) +
+  scale_y_continuous(labels = NULL)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-75-2.png" width="672" /></p>
+<p>It is possible to change the distance between ticks on the graph. Alternatively, using null, you can remove labels completely.</p>
+</div>
+<div id="color" class="section level3">
+<h3><em>Color</em></h3>
+<p>The R brewer color package provides a good set of colors to use.</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = &quot;Set1&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<pre class="r"><code>presidential %&gt;%
+  mutate(id = 33 + row_number()) %&gt;%
+  ggplot(aes(start, id, colour = party)) +
+    geom_point() +
+    geom_segment(aes(xend = end, yend = id)) +
+    scale_colour_manual(values = c(Republican = &quot;red&quot;, Democratic = &quot;blue&quot;))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<p>This allows you to add certain colors to certain data.</p>
+</div>
+<div id="zooming" class="section level3">
+<h3><em>Zooming</em></h3>
+<pre class="r"><code>ggplot(mpg, mapping = aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth() +
+  coord_cartesian(xlim = c(5, 7), ylim = c(10, 30))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-78-1.png" width="672" /></p>
+<pre class="r"><code>mpg %&gt;%
+  filter(displ &gt;= 5, displ &lt;= 7, hwy &gt;= 10, hwy &lt;= 30) %&gt;%
+  ggplot(aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-78-2.png" width="672" /></p>
+<p>coord_cartesian() allows you to zoom into plots. You can also set limits.</p>
+<p>You can also add themes and other colors by installing other packages.</p>
 </div>
 </div>
 </div>
