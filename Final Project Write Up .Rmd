@@ -1,0 +1,25 @@
+---
+title: "Final write up"
+output: html_document
+---
+
+University of Pennsylvania
+Andrew Santillan, Isabella Werneck, Kaiyla Jolley, and Niko Amber
+December 12th, 2021
+
+__State Political Affiliation and Hate Crimes__
+
+```{r setup, include=FALSE}
+
+```
+
+
+```{r cars}
+
+```
+
+```{r pressure, echo=FALSE}
+
+```
+
+

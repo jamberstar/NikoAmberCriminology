@@ -1,0 +1,179 @@
+---
+title: "Criminology Final Project Draft 1"
+output: html_document
+---
+
+```{r}
+
+head(dat)
+names(dat)
+summary(dat$rate_rea)
+
+library(tidyverse)
+
+
+cor(dat$Trump, dat$REA)
+
+sum(dat$PopulationCovered)
+
+sum(dat$TotalPopulation)
+
+populationcomp <- c(sum(dat$PopulationCovered), sum(dat$TotalPopulation))
+                    table(populationcomp)
+barplot(populationcomp)
+
+
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = REA, y = TotalRate, color = TorB))
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = REA, y = Total, color = TorB)) +
+  coord_cartesian(xlim = c(0, 150), ylim = c(0, 250))
+
+hist(dat$REA)
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = Trump, y = REA,))
+
+cor(dat$REA, dat$Trump)
+
+hist(dat$REA)
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = Trump, y = REA,))
+
+cor(dat$REA, dat$Biden)
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = PopulationCovered, y = TotalPopulation))
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = Trump, y = TotalRate))
+
+plot(dat$Trump )
+
+names(dat)
+
+
+ggplot(data = dat) +
+  geom_boxplot(mapping = aes(x = REA, y = Trump))
+
+
+hist(dat$PopulationCovered)
+
+hist(dat$TotalPopulation)
+
+ggplot( data = dat) +
+  geom_boxplot(mapping = aes(x = TotalPopulation, y = PopulationCovered))
+install.packages("usmap")
+
+library(usmap)
+
+dat <- read.csv(file = "/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Final Data - Final Project Data with Rates.csv")
+
+names(dat)
+
+plot_usmap(data = dat, values = "Trump") +
+   scale_fill_continuous( low = "white", high = orange, 
+                         name = "Popularity", label = scales::comma
+  )
+
+ names(dat) [1] <- "state"
+
+names(dat)
+plot_usmap(data = dat, values = "Trump") +
+   scale_fill_continuous(aes( color= "Rate"))
+
+names(dat)
+
+ggplot(data = dat) +
+  geom_point(mapping = aes(x = TotalPopulation, y = TotalPopulation, color = PopulationCovered))
+
+plot_usmap(data = dat, values = "rep_dem") +
+ scale_fill_manual( values= c("#1C8DE6", "#DC1919"))
+
+plot_usmap(data = dat, values = "perc_rep") +
+   scale_fill_continuous(aes( color= "rate"))
+
+plot_usmap(data = dat, values = "pop_rat") +
+   scale_fill_continuous(aes( color= "rate"))
+
+cor(dat$REA, dat$Trump)
+
+plot(dat$Trump, dat$REA)
+#linear regression 
+lmREA <-lm( formula = dat$Trump ~ dat$REA, data = (dat) )
+
+plot(lmREA)
+
+log_dat <- log10(dat$rate)
+
+
+plot_usmap(data = dat, values = "pop_tot") +
+   scale_fill_continuous(aes( color= "pop_cov"))
+
+plot_usmap(data = dat, values = "pop_rat") +
+   scale_fill_continuous(aes( color= "pop_tot"))
+
+plot_usmap(data = dat, values = "Trump") +
+   scale_fill_continuous(aes( color= "Rate"))
+
+plot_usmap(data = dat, values = "Trump") +
+   scale_fill_continuous( low = "white", high = orange, 
+                         name = "Popularity", label = scales::comma
+  )
+
+
+   
+```
+
+```{r}
+dat <- read.csv(file = "/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Final Data - Final Project Data with Rates.csv")
+
+colnames(dat)
+
+plot_usmap(data = dat, values = "rep_dem") +
+ scale_fill_manual( values= c("#1C8DE6", "#DC1919"))
+
+
+```
+```{r}
+plot_usmap(data = dat, values = "pop_rat") +
+   scale_fill_continuous( low = "white", high = "navy", 
+                         name = "Population Reported", label = scales::comma
+  )
+```
+```{r}
+
+
+plot_usmap(data = dat, values = "rate") +
+   scale_fill_continuous( low = "white", high = "navy", 
+                         name = "Rate of Hate Crimes", label = scales::comma
+  )
+
+dat1 <- dat
+dat1$new_col <- log10(dat$rate)
+dat1$pop_rsq <- dat$pop_rat^2
+
+colnames(dat1)
+
+plot(dat$perc_rep, dat$rate_rea)
+
+(dat$perc_rep, dat$rate_rea)
+lmREA <-lm( formula = dat$perc_rep ~ dat$rate_rea, data = (dat) )
+summary(lmREA)
+
+plot(lmREA)
+
+coef()
+
+table(dat$rate)
+
+
+table( dat(rate)
+
+```
+
+None of the assumptions are linearity are satisfied, which means that there is no way to use linear regression to calculate corelation or causation. There may be other ways to measure it, but they are beyond the scope of this class. 
+
