@@ -8,8 +8,8 @@ navbar:
       href: RBasics.html
     - text: "Assignments"
       href: Assignments.html
-     -text: "State Political Affiliation and Hate Crime"
-     href: final project write up.html
     - text: "Links"
       href: Links.html
+    - text: "State Political Affiliation and Hate Crime"
+      href: final-project-write-up.html
 output_dir: "docs"

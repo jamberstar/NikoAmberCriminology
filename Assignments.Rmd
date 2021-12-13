@@ -1,16 +1,17 @@
 ---
 title: "Assignments"
 output:
-  html_document:
-    toc: yes
-    toc_float: yes
-    collapsed: no
-    number_sections: no
+html_document:
+  toc: yes
+  toc_float: yes
+  collapsed: no
+  number_sections: no
     toc_depth: 1
-  pdf_document:
-    toc: no
-    toc_depth: '1'
+    pdf_document:
+    toc: true
+    toc_depth: 1
 ---
+
 Niko Amber Assignments!
 
 # Assignment 1  
@@ -19,11 +20,6 @@ Niko Amber Assignments!
 
 ### Problem 1 
 
-Install the datasets package on the console below using `install.packages("datasets")`. Now load the library.
-
-```{r}
-
-```
 
 Answer: I've loaded the library!
 
@@ -31,6 +27,7 @@ Load the USArrests dataset and rename it `dat`. Note that this dataset comes wit
 
 ```{r}
 dat <- USArrests
+
 ```
 
 Answer: It is beneficial to rename the data set, so we can replicate analyses without disturbing the 
@@ -1154,3 +1151,322 @@ mpg %>%
 coord_cartesian() allows you to zoom into plots. You can also set limits. 
 
 You can also add themes and other colors by installing other packages.
+
+# Final Write Up
+
+University of Pennsylvania
+
+Andrew Santillan, Isabella Werneck, Kaiyla Jolley, and Niko Amber
+
+December 12th, 2021
+
+## _1. Introduction_
+
+
+Following Donald Trump's presidential election in 2016, there has been a substantial increase in hate crimes in the United States. According to the FBI's report on hate crime statistics, hate crimes have increased from 6,121 incidents in 2016 to 7,314 in 2019—a 19.49 percent increase in only 3 years (FBI, 2019). This spike in hate crimes is commonly associated with Trump's inflammatory rhetoric during his political campaign and his subsequent win in the 2016 elections (Edwards & Rushin, 2018). Critics say that his victory emboldened hate crime perpetrators, which led to an increase in hate crimes. This was dubbed as the "Trump Effect" (Edwards & Rushin, 2018). 
+Data shows that anti-immigrant sentiment, racism, and sexism are common among Trump's supporters (Sharffner et al, 2018), which may suggest that they are more likely than non-supporters to commit hate crimes against minority groups. In this report, we analyze the correlation between states' political leaning in the 2020 elections and the associated hate crime rates in 2021. The data used in this report contains voting results per state from the 2020 elections and hate crime numbers per state in 2019, which is divided into six bias categories. 
+
+### _1.1 Research Question and Hypothesis_
+
+Our research question is the following: Is there a relationship between a state’s political affiliation in the 2020 Presidential election and hate crime data as reported to the FBI? Following the assumption that individuals who voted for Trump are more likely to commit a hate crime, we expect to find that states that mostly voted Republican in 2020 had higher hate crime rates in 2019
+
+## _2 Exploratory Data Analysis_
+
+### _2.1 Data Description_
+
+The dataset in this report contains data from the FBI 2019 Hate Crime Statistics (FBI, 2019) and from the Official 2020 Presidential General Election Results (FEC, 2021). The hate crime data was collected through the Uniform Crime Reporting (UCR) Program and it includes both single-bias and multiple-bias hate crimes. The synthesized dataset contains 50 observations and 14 variables. Six of the variables correspond to the hate crime categories, which include the following biases: race, religion, sexual orientation, disability, gender, and gender identity. 
+
+### _2.2 Missing Values_
+
+Only 49 American states were included in the observations. Alabama did not report to the UCR Program, and so it was excluded from the dataset. Washington D.C. reported to the UCR as a separate entity, and so it was included as a separate observation. 
+It is important to note that participation in the Federal UCR Program Initiative is voluntary, which means that state jurisdictions can choose not to report. In the case of Alabama, the entire state chose not to participate in the UCR Program, but for all other states there are jurisdictions missing from the dataset. Therefore, there is a distinction between total state population and population covered. The term "population covered" means the total population covered by the jurisdictions that chose to report. For example, the total population of Florida is 21.5 million, and the population covered is approximately 20.9 million. Due to the voluntary nature of the UCR Program, there are many missing values in the dataset.
+
+### _2.3 Percentage of population that reported to the FBI_
+
+
+```{r }
+dat <- read.csv(file = "/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Final Data - Final Project Data with Rates.csv")
+library(tidyverse)
+
+library(usmap)
+
+plot_usmap(data = dat, values = "pop_rat") +
+   scale_fill_continuous( low = "white", high = "navy", 
+                         name = "Population Reported", label = scales::comma
+  )
+
+
+```
+### _2.4 Total hate crime per state_
+
+```{r}
+
+plot_usmap(data = dat, values = "rate") +
+   scale_fill_continuous( low = "navy", high = "white", 
+                         name = "Rate of Hate Crimes", label = scales::comma
+  )
+
+
+```
+
+
+
+### _2.5 Codebook_
+
+pop_cov: Population covered by FBI
+pop_tot: Total state population
+pop_rat: Population covered by FBI/total state population
+perc_rep: Percentage of population that voted for Trump
+perc_dem: Percentage of population that voted for Biden
+rep_dem: Republican (R)
+rate: Number of hate crimes reported per 100,000
+Rate_rea: number of racially motivated hate crime per 100,000
+Rate_rel: number of hate crimes against religion per 100,000
+Rate_sex: number of hate crimes against sexual orientation per 100,000
+Rate_dis: number of hate crimes against disabilities per 100,000
+Rate_gen: number of hate crimes against gender per 100,000
+Rate_gei: number of hate crimes against gender identity per 100,000
+
+## _2.6 Scatterplots_
+
+*Note: We have labelled significant outlines to facilitate visial analysis.*
+
+*Please see codebook for variable names*
+
+__Percentage that Voted Republican vs. Rate of Total Hate Crime__
+
+```{r}
+# rate Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate,
+  ylab="rate Hate Crimes Reported (per 100,000)",
+  main="rate Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40),
+  y=c(31.464),
+  labels=c("D.C."),
+  pos=1
+)
+```
+
+__Percentage that Voted Republican vs. Rate of Race/Ethnicity Hate Crime__
+
+
+```{r}
+# rate_rea Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_rea,
+  ylab="rate_rea Hate Crimes Reported (per 100,000)",
+  main="rate_rea Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40),
+  y=c(16.86),
+  labels=c("D.C."),
+  pos=1
+)
+
+```
+
+__Percentage that Voted Republican vs. Rate of Religion Hate Crime__
+
+```{r}
+# rate_rel Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_rel,
+  ylab="rate_rel Hate Crimes Reported (per 100,000)",
+  main="rate_rel Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40, 41.4, 37.75),
+  y=c(1.134, 2.894, 1.884),
+  labels=c("D.C", "New Jersey", "New York"),
+  pos=c(3, 1, 1)
+)
+```
+
+__Percentage that Voted Republican vs. Rate of Sexual Orientation Hate Crime__
+
+```{r}
+# rate_sex Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_sex,
+  ylab="rate_sex Hate Crimes Reported (per 100,000)",
+  main="rate_sex Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40),
+  y=c(9.21),
+  labels=c("D.C."),
+  pos=1
+)
+```
+
+__Percentage that Voted Republican vs. Rate of Disability Hate Crime__
+
+```{r}
+# rate_dis Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_dis,
+  ylab="rate_dis Hate Crimes Reported (per 100,000)",
+  main="rate_dis Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40, 57.60, 53.27),
+  y=c(0.142, 0.680, 0.565),
+  labels=c("D.C.", "Mississippi", "Ohio"),
+  pos=c(3, 1, 1)
+)
+```
+
+__Percentage that Voted Republican vs. Rate of Gender Hate Crime__
+
+```{r}
+# rate_gen Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_gen,
+  ylab="rate_gen Hate Crimes Reported (per 100,000)",
+  main="rate_gen Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40, 47.84),
+  y=c(0.283, 0.151),
+  labels=c("D.C.", "Michigan"),
+  pos=c(1, 1)
+)
+```
+
+__Percentage that Voted Republican vs. Rate of Gender Identity Hate Crime__
+
+```{r}
+# rate_gei Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab="Percentage Republican",
+  y=dat$rate_gei,
+  ylab="rate_gei Hate Crimes Reported (per 100,000)",
+  main="rate_gei Hate Crimes vs. Political Affiliation"
+)
+
+text(
+  x=c(5.40),
+  y=c(3.826),
+  labels=c("D.C."),
+  pos=1
+)
+```
+
+## _3 Modeling the Data and Diagnostics_
+
+To answer our research question, we performed linear regressions on each of the seven categories of hate crimes that the FBI collects data for. A linear regression will allow us to see if there is an association between an increase in Trump voters and incidents of hate crimes. We performed individual regressions to see if any of the categories had a different trend or significance level. We know that breaking down the categories will make our sample smaller so our linear regression models for the specific categories will not be as strong or reliable as the linear regression for total hate crime rate. 
+
+## _3.1 Assumptions_
+
+```{r}
+reg.output.total <- lm(formula = rate ~ perc_rep, data = dat) 
+summary(reg.output.total)
+```
+
+```{r}
+length(dat$perc_rep)
+length(reg.output.total$residuals)
+plot(dat$perc_rep, reg.output.total$residuals, ylim=c(-15,15), main="Residuals vs. x", xlab="x, Proportion of Republican Voters", ylab="Residuals")
+abline(h = 0, lty="dashed")
+```
+
+__Figure 3.11__
+
+```{r}
+plot(reg.output.total, which=1)
+```
+
+__Figure 3.12__
+
+```{r}
+plot(reg.output.total, which=3)
+```
+
+__Figure 3.13__
+
+```{r}
+plot(reg.output.total, which=5)
+```
+__Figure 3.14__
+
+```{r}
+plot(reg.output.total, which=2)
+```
+
+
+Diagnostic plots for the linear regression model indicate that the four assumptions of linearity, independence, homoscedasticity, and normal population were not satisfied for any of the categories of hate crime that we analyzed. To explain the diagnostic plots, we will analyze the plots for the total hate crime rate. Fig 3.11 is the “Residuals vs x,” which shows that as the percentage of Trump voters increases, the value of the residuals also increases. Since this trend is a pattern, it does not satisfy the linearity assumption, which needs to show a “Residuals vs x” plot with no distinguishable pattern. Fig 3.12 is the “Residuals vs. Fitted” plot, which shows a red line that appears to have a negative linear trend, indicating that the linearity assumption is not satisfied since the average value of the residuals needs to be flat for a linear trend. There is no diagnostic plot for the independence assumption, but we can assume this assumption is satisfied because the data is not a time series, and there are no discernible signs of clumping in the plots. Fig 3.13 is the scale location plot for the homoscedasticity assumption. The red line in the plot shows an almost exponential trend which indicates that the residuals have non-constant variance. Therefore the homoscedasticity assumption is not satisfied. Fig 3.14 and Fig 3.15 are the “Residuals vs. Leverage” plots and the “Normal Q-Q” plots for the normal population assumption. The “Residuals vs Leverage” plot in Fig 3.14 indicates that point 50 (Washington D.C) is a significant outlier in the data set. Fig 3.15 is the normal q-q plot that shows an almost straight line, but the outlier pushes the trend to be slightly right-skewed. The normal population assumption is not satisfied due to the outlier at point 50, although the q-q plot is decent. The diagnostic plots for the other categories of hate crimes also follow similar trends, so we can conclude that the linear model is not a good analytic model for the data.
+
+## _4 Results_
+
+We observed statistically significant p-values at the 0.01 alpha level for all categories of hate crimes except in hate crimes pertaining to disabilities. This means that the association between hate crime rates and the percentage of Trump voters is not due to chance, and the null hypothesis could be rejected if the linear model were a good fit for the data. For the total hate crime rate, we observed a coefficient of -0.23276 which means that for every one percent increase in Trump supporters, there is a 0.23276 (with a standard error of 0.04208) decrease in total hate crimes per 100,000 people. We observed a negative coefficient for five hate crime categories, with race/ethnicity/ancestry-based hate crimes having the largest decrease of -2.9208 per 100,000 people. The disability category has a coefficient of 0.0003827 which means that for every one percent increase in Trump voters, there is an increase in the rate of hate crimes pertaining to disabilities by  0.0003827 per 100,000 people. However, this category had a p-value of 0.8, which is not statistically significant, so the association we see could be due to chance. All of the adjusted R-squared values we observed were under 0.5, which means that the model is not a good fit for the data because it cannot account for much of the variation in the data. Therefore, we cannot conclude an association between the percentage of Trump voters and the hate crime rate based on the linear model.
+
+## _5 Discussion/analysis_
+
+In our study, there were confounding variables that impacted our results. As shown in the DAG below, the two main confounding variables are non-voters and underreporting of crimes. 
+
+![DAG](/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Final Project Write-Up.png)
+
+Non-voters impacted our data in multiple ways. When we did our analysis and EDA, we only looked at members of the electorate who voted for the Republican and Democratic parties. We only performed our analysis using the percentage of Republican voters in the 2020 election. This means our analysis did not take into account constituents who voted for alternate parties. There were over 2,000,000 votes for third party and write in candidates (FEC, 2021).  Additionally, we did not account for non-voters in the U.S. Only 67% of eligible voters casted a ballot in the 2020 election (Fabina, 2021). We did not take into account residents and others who cannot vote. 
+
+As mentioned above, reporting to the UCR is voluntary. More importantly, there is a large hate crime reporting gap (COPS Office, 2013). This works in many ways. First: surveys done by the US Department of Justice have uncovered that many people who are victims of hate crimes do not report. According to the DOJ, victims do not believe they will be aided by law enforcement.  Additionally, many crimes that are motivated by hate are not reported as such, as it is difficult for officers to discern whether a crime is motivated by hate. It is also much more work to convict and prove a crime was motivated by hate (Davis, 2021). According to the International Association of Police Chiefs, less than ⅔ of the over 250,000 hate crimes committed per year are reported (Davis, 2021). 
+
+In the future research, we would look more closely at the gaps in hate crime reporting. Rather than analyzing the hate crime data, we would analyze the connection between states that voted majority Republican and the percentage of jurisdictions that reported. We would utilize linear regression again to establish if there is a causal relationship. A diff-in-diff model could also be interesting to analyze the "Trump Effect" on hate crime rates, but existing data might be insufficient for that. 
+
+## _6 Bibliography_
+
+COPS Office. (2013, May). Hate Crime Reporting – Working to Close the Gap. Retrieved from 
+https://cops.usdoj.gov/html/dispatch/05-2013/hate_crime_reporting.asp
+
+Davis, R. L. (2021). The Hate Crimes Reporting Gap: Low Numbers Keep Tensions High	 
+Retrieved from https://www.policechiefmagazine.org/the-hate-crimes/
+
+Fabina, J. (2021, April 29). Despite pandemic challenges, 2020 election had largest increase in 
+voting between presidential elections on record. Retrieved from 
+https://www.census.gov/library/stories/2021/04/record-high-turnout-in-2020-general-elec
+tion.html
+
+ Federal Bureau of Investigation. (2019, October 29). Incidents and offenses. Retrieved from 
+https://ucr.fbi.gov/hate-crime/2019/topic-pages/incidents-and-offenses
+
+Federal Election Commission. (2021, January 28). Official 2020 presidential general election 
+results. Retrieved from 
+https://www.fec.gov/resources/cms-content/documents/2020presgeresults.pdf
+
+Rushin, S., & Edwards, G. S. (2018). The effect of president Trump's election on hate crimes. 
+SSRN Electronic Journal. https://doi.org/10.2139/ssrn.3102652 
+
+Schaffner, B. F., Macwilliams, M., & Nteta, T. (2018). Understanding white polarization in the 
+2016 vote for president: The sobering role of racism and sexism. Political Science 
+Quarterly, 133(1), 9–34. https://doi.org/10.1002/polq.12737 
+
+Villarreal, D. (2020, November 17). Hate crimes under Trump surged nearly 20 percent says FBI 
+report. Newsweek. Retrieved December 12, 2021, from 
+https://www.newsweek.com/hate-crimes-under-trump-surged-nearly-20-percent-says-fbi-report-1547870. 
+
+
+
+
+
