@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+<meta name="author" content="Niko Amber" />
+
+<meta name="date" content="2021-11-01" />
+
+<title>Exam 2</title>
+
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/bootstrap.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/highlightjs-9.12.0/default.css" rel="stylesheet" />
+<script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+<style type="text/css">code{white-space: pre;}</style>
+<script type="text/javascript">
+if (window.hljs) {
+  hljs.configure({languages: []});
+  hljs.initHighlightingOnLoad();
+  if (document.readyState && document.readyState === "complete") {
+    window.setTimeout(function() { hljs.initHighlighting(); }, 0);
+  }
+}
+</script>
+
+
+
+
+
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">Niko Amber Criminology</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">Home</a>
+</li>
+<li>
+  <a href="RBasics.html">R Basics</a>
+</li>
+<li>
+  <a href="Assignments.html">Assignments</a>
+</li>
+<li>
+  <a href="Links.html">Links</a>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+<h1 class="title toc-ignore">Exam 2</h1>
+<h4 class="author">Niko Amber</h4>
+<h4 class="date">11/01/2021</h4>
+
+</div>
+
+
+<p>Niko Amber Assignments!</p>
+<div id="assignment-1" class="section level1">
+<h1>Assignment 1</h1>
+<p><strong>Collaborators: Eliza Epstein. </strong></p>
+<div id="problem-1" class="section level3">
+<h3>Problem 1</h3>
+<p>Answer: I’ve loaded the library!</p>
+<p>Load the USArrests dataset and rename it <code>dat</code>. Note that this dataset comes with R, in the package datasets, so there’s no need to load data from your computer. Why is it useful to rename the dataset?</p>
+<pre class="r"><code>dat &lt;- USArrests</code></pre>
+<p>Answer: It is beneficial to rename the data set, so we can replicate analyses without disturbing the original data set. Additionally, it is nice to rename your data set to know exactly it is called</p>
+</div>
+<div id="problem-2" class="section level3">
+<h3>Problem 2</h3>
+<p>First I am making states lowercarse, to be used as variables later.</p>
+<pre class="r"><code>dat$state &lt;- tolower(rownames(USArrests))</code></pre>
+<p>This dataset has the state names as row names, so we just want to make them into a new variable. We also make them all lower case, because that will help us draw a map later - the map function requires the states to be lower case.</p>
+<p>List the variables contained in the dataset <code>USArrests</code>.</p>
+<p>The variables contained in the dataset ‘USArrests’ are Murder, Assault, and Rape. Additionally, the data set shows us what percentage of people live in urban areas.</p>
+<pre class="r"><code>USArrests</code></pre>
+<pre><code>##                Murder Assault UrbanPop Rape          state
+## Alabama          13.2     236       58 21.2        alabama
+## Alaska           10.0     263       48 44.5         alaska
+## Arizona           8.1     294       80 31.0        arizona
+## Arkansas          8.8     190       50 19.5       arkansas
+## California        9.0     276       91 40.6     california
+## Colorado          7.9     204       78 38.7       colorado
+## Connecticut       3.3     110       77 11.1    connecticut
+## Delaware          5.9     238       72 15.8       delaware
+## Florida          15.4     335       80 31.9        florida
+## Georgia          17.4     211       60 25.8        georgia
+## Hawaii            5.3      46       83 20.2         hawaii
+## Idaho             2.6     120       54 14.2          idaho
+## Illinois         10.4     249       83 24.0       illinois
+## Indiana           7.2     113       65 21.0        indiana
+## Iowa              2.2      56       57 11.3           iowa
+## Kansas            6.0     115       66 18.0         kansas
+## Kentucky          9.7     109       52 16.3       kentucky
+## Louisiana        15.4     249       66 22.2      louisiana
+## Maine             2.1      83       51  7.8          maine
+## Maryland         11.3     300       67 27.8       maryland
+## Massachusetts     4.4     149       85 16.3  massachusetts
+## Michigan         12.1     255       74 35.1       michigan
+## Minnesota         2.7      72       66 14.9      minnesota
+## Mississippi      16.1     259       44 17.1    mississippi
+## Missouri          9.0     178       70 28.2       missouri
+## Montana           6.0     109       53 16.4        montana
+## Nebraska          4.3     102       62 16.5       nebraska
+## Nevada           12.2     252       81 46.0         nevada
+## New Hampshire     2.1      57       56  9.5  new hampshire
+## New Jersey        7.4     159       89 18.8     new jersey
+## New Mexico       11.4     285       70 32.1     new mexico
+## New York         11.1     254       86 26.1       new york
+## North Carolina   13.0     337       45 16.1 north carolina
+## North Dakota      0.8      45       44  7.3   north dakota
+## Ohio              7.3     120       75 21.4           ohio
+## Oklahoma          6.6     151       68 20.0       oklahoma
+## Oregon            4.9     159       67 29.3         oregon
+## Pennsylvania      6.3     106       72 14.9   pennsylvania
+## Rhode Island      3.4     174       87  8.3   rhode island
+## South Carolina   14.4     279       48 22.5 south carolina
+## South Dakota      3.8      86       45 12.8   south dakota
+## Tennessee        13.2     188       59 26.9      tennessee
+## Texas            12.7     201       80 25.5          texas
+## Utah              3.2     120       80 22.9           utah
+## Vermont           2.2      48       32 11.2        vermont
+## Virginia          8.5     156       63 20.7       virginia
+## Washington        4.0     145       73 26.2     washington
+## West Virginia     5.7      81       39  9.3  west virginia
+## Wisconsin         2.6      53       66 10.8      wisconsin
+## Wyoming           6.8     161       60 15.6        wyoming</code></pre>
+</div>
+<div id="problem-3" class="section level3">
+<h3>Problem 3</h3>
+<p>What type of variable (from the DVB chapter) is <code>Murder</code>?</p>
+<p>Answer: Murder is a categorical variable, it is one of many catagories that crime falls into. It is not ordinal, there is no ordering of crime.</p>
+<p>What R Type of variable is it?</p>
+<p>Answer: ‘Murder’ is a character variable, it contains information that isn’t numeric.</p>
+</div>
+<div id="problem-4" class="section level3">
+<h3>Problem 4</h3>
+<p>What information is contained in this dataset, in general? What do the numbers mean?</p>
+<p>Answer: The Data set USArrests contains data about the rate of arrests for murder, rape and assault per 100,000 residents in each US state in 1973. The data set also includes the percent of the population living in urban cities in each state. The collums represent each type or crime (and urban population percentage) The numbers in each row are the rate of arrests per state (per 100,000).</p>
+</div>
+<div id="problem-5" class="section level3">
+<h3>Problem 5</h3>
+<p>Draw a (histogram) bar graph of <code>Murder</code> with proper labels and title. I used a bar graph instead of a histogram because I feel that is a better way to represent this data.</p>
+<pre class="r"><code>barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Murder Arrests per 100,000 people&quot;,
+        main = &quot;Arrests for Murder in the United States 1973&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+</div>
+<div id="problem-6" class="section level3">
+<h3>Problem 6</h3>
+<p>Please summarize <code>Murder</code> quantitatively. What are its mean and median? What is the difference between mean and median? What is a quartile, and why do you think R gives you the 1st Qu. and 3rd Qu.?</p>
+<p>I used the summary function to gather this information</p>
+<pre class="r"><code>summary(USArrests$Murder)</code></pre>
+<pre><code>##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   0.800   4.075   7.250   7.788  11.250  17.400</code></pre>
+<p>The mean for murder is 7.788 meaning this is the average rate of people (per 100,000) murdered in each US state in 1973. The median for murder is 7.250 meaning in the United States in 1973 half of the states had a rate per 100,000 more that 7.250 and half had fewer. Median is the middle of numbers in a data set, while mean is the average of all numbers in said set. If the data is evenly distributed the median will equal the mean.</p>
+<p>A quartile is when the data is divided into four equal parts: the 1st, 2nd, 3rd, and 4th quartile. R gives the 1st and 3rd quartile because it represents the middle of the data. 1st quartile is lowest 25% and 3rd quartile is highest 25%.</p>
+</div>
+<div id="problem-7" class="section level3">
+<h3>Problem 7</h3>
+<p>Repeat the same steps you followed for <code>Murder</code>, for the variables <code>Assault</code> and <code>Rape</code>. Now plot all three histograms together. You can do this by using the command <code>par(mfrow=c(3,1))</code> and then plotting each of the three.</p>
+<p>Note: I used bar graphs</p>
+<pre class="r"><code>barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Murder Arrests per 100,000 people&quot;,
+        main = &quot;Arrests for Murder in the United States 1973&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-6-1.png" width="480" /></p>
+<pre class="r"><code>#Bar plot for rape arrests
+barplot(USArrests$Rape , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Arrests for Rapes per 100,000 people&quot;,
+        main = &quot;Rate of Arrests for Rape in the United States in 1973&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-6-2.png" width="480" /></p>
+<pre class="r"><code>#Bar plot for assault arrests
+barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Arrests for Assault per 100,000&quot;,
+        main = &quot;Rate of Arrests for Assaults in the United States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-6-3.png" width="480" /></p>
+<pre class="r"><code>#plotting the graphs together
+
+par(mfrow=c(3,1)) 
+barplot(USArrests$Murder , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Murder Arrests per 100,000 people&quot;,
+        main = &quot;Arrests for Murder in the United States 1973&quot;)
+#Bar plot for rape arrests
+barplot(USArrests$Rape , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Arrests for Rapes per 100,000 people&quot;,
+        main = &quot;Rate of Arrests for Rape in the United States in 1973&quot;)
+
+#Bar plot for assault arrests
+barplot(USArrests$Assault , names.arg = state.name,las=2, xlab = &quot;States&quot;, ylab = &quot;Rate of Arrests for Assault per 100,000&quot;,
+        main = &quot;Rate of Arrests for Assaults in the United States&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-6-4.png" width="480" /></p>
+<pre class="r"><code>par</code></pre>
+<pre><code>## function (..., no.readonly = FALSE) 
+## {
+##     .Pars.readonly &lt;- c(&quot;cin&quot;, &quot;cra&quot;, &quot;csi&quot;, &quot;cxy&quot;, &quot;din&quot;, &quot;page&quot;)
+##     single &lt;- FALSE
+##     args &lt;- list(...)
+##     if (!length(args)) 
+##         args &lt;- as.list(if (no.readonly) 
+##             .Pars[-match(.Pars.readonly, .Pars)]
+##         else .Pars)
+##     else {
+##         if (all(unlist(lapply(args, is.character)))) 
+##             args &lt;- as.list(unlist(args))
+##         if (length(args) == 1) {
+##             if (is.list(args[[1L]]) || is.null(args[[1L]])) 
+##                 args &lt;- args[[1L]]
+##             else if (is.null(names(args))) 
+##                 single &lt;- TRUE
+##         }
+##     }
+##     value &lt;- .External2(C_par, args)
+##     if (single) 
+##         value &lt;- value[[1L]]
+##     if (!is.null(names(args))) 
+##         invisible(value)
+##     else value
+## }
+## &lt;bytecode: 0x7f80f504fa28&gt;
+## &lt;environment: namespace:graphics&gt;</code></pre>
+<p>What does the command par do, in your own words (you can look this up by asking R <code>?par</code>)?</p>
+<p>Answer: This command allows R to set paramaters, this way multiple data sets can be graphed together.</p>
+<p>What can you learn from bar graphs the histograms together?</p>
+<p>Answer: When we plot these bar graphs together we can compare each state’s arrest rates for different crimes. For example, when looking at the bar graphs it is easy to see that North Carolina’s arrest rate for assault is much higher than the arrest rate for rape. This can lead researchers to ask questions: why were there more arrests for assaults? Were there possible sexually based assault that should have been charged as rape?</p>
+</div>
+<div id="problem-8" class="section level3">
+<h3>Problem 8</h3>
+<p>In the console below (not in text), type <code>install.packages("maps")</code> and press Enter, and then type <code>install.packages("ggplot2")</code> and press Enter. This will install the packages so you can load the libraries.</p>
+<p>Run this code:</p>
+<pre class="r"><code>library(&#39;maps&#39;) 
+library(&#39;ggplot2&#39;) 
+
+#this code creates a map
+ggplot(dat, aes(map_id=state, fill=Murder)) + 
+  geom_map(map=map_data(&quot;state&quot;)) + 
+  expand_limits(x=map_data(&quot;state&quot;)$long, y=map_data(&quot;state&quot;)$lat)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-7-1.png" width="720" /></p>
+<p>What does this code do? Explain what each line is doing.</p>
+<p>Answer: This code creates a colored map that uses our data set to show murder rates. The lighter the blue, the higher the murder rate.</p>
+<p>The first line of code creates a map that is divided by states. TYhe first line also applies the data set to the map, so the color of the state will be lighter if murder rates are higher. The second line of code designs the map by breaking it up by state. The last line of code expands the limits of the map</p>
+<p>Here is my histogram</p>
+<pre class="r"><code>hist(dat$Murder, main = &quot;Murder Rate in The United States in 1973&quot;, xlab = &quot;Murder Rate&quot;, ylab = &quot;Frequency&quot;,
+color= &quot;purple&quot;)</code></pre>
+<pre><code>## Warning in plot.window(xlim, ylim, &quot;&quot;, ...): &quot;color&quot; is not a graphical
+## parameter</code></pre>
+<pre><code>## Warning in title(main = main, sub = sub, xlab = xlab, ylab = ylab, ...): &quot;color&quot;
+## is not a graphical parameter</code></pre>
+<pre><code>## Warning in axis(1, ...): &quot;color&quot; is not a graphical parameter</code></pre>
+<pre><code>## Warning in axis(2, ...): &quot;color&quot; is not a graphical parameter</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<p><span class="math display">\[\\[2in]\]</span></p>
+</div>
+</div>
+<div id="assignment-2" class="section level1">
+<h1>Assignment 2</h1>
+<div id="problem-1-1" class="section level3">
+<h3>Problem 1</h3>
+<pre class="r"><code>knitr::opts_chunk$set(echo = TRUE)
+
+setwd(&quot;/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Assignment 2&quot;)
+
+dat &lt;- read.csv(file = &#39;dat.nsduh.small.1.csv&#39;)
+
+names(dat)</code></pre>
+<pre><code>## [1] &quot;mjage&quot;     &quot;cigage&quot;    &quot;iralcage&quot;  &quot;age2&quot;      &quot;sexatract&quot; &quot;speakengl&quot;
+## [7] &quot;irsex&quot;</code></pre>
+<pre class="r"><code>nrow(dat)</code></pre>
+<pre><code>## [1] 171</code></pre>
+<pre class="r"><code>ncol(dat)</code></pre>
+<pre><code>## [1] 7</code></pre>
+<p>There are seven columns and 171 rows</p>
+</div>
+<div id="problem-2-1" class="section level3">
+<h3>Problem 2</h3>
+<p><strong>Describe the variables in the dataset.</strong></p>
+<p>The variables in the data are:</p>
+<p>MJAGE which is how old the participants are the first time they used marijuana/hashish. It is a quantitative continuous variable.</p>
+<p>CIGAGE which is how old the participants were when they first started smoking cigarettes everyday. It is a quantitative continuous variable.</p>
+<p>IRALCAGE which is how old the participants were when they first tried alcohol. it is a quantitative continuous variable.</p>
+<p>AGE2S which is the age of the respondents of the survey, categorized into groups. It is a categorical nominal variable.</p>
+<p>IRSEX which is which sex participants identify as. It is a categorical, nominal variable. Participants can only identify as male or female. which is coded as 1 or 2.</p>
+<p>SEXATRACT which is who participants of the study are attracted to. It is a categorical, nominal variable. Participants identified their sexual preference on a catagory scale of 1-6, but there is no ranking.</p>
+<p>SPEAKENGL which is how well do participants speak English. It is a categorical, ordinal variable. Participants rate on a scale of 1-4 where 1 is speaking English well and 4 is not at all.</p>
+<p><strong>What is this dataset about? Who collected the data, what kind of sample is it, and what was the purpose of generating the data?</strong></p>
+<p>This data set is a sample form a 2019 survey taken by the National Survey of Drug Use and Health. This data is only a sample of the survey and has the first 1000 values, and does not include missing values. The data is a random sampling of the US population, and it can be used to tell us more about the US population and their relationship with drugs.</p>
+</div>
+<div id="problem-3-age-and-gender" class="section level2">
+<h2>Problem 3: Age and gender</h2>
+<p><strong>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</strong></p>
+<pre class="r"><code>hist(dat$age2, main= &quot;Histogram of ages of participants of 2019 NSDUH survey&quot;, xlab= &quot;Ages in Groups&quot;, ylab= &quot;Frequency&quot; )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-10-1.png" width="672" /></p>
+</div>
+<div id="problem-3-age-and-gender-1" class="section level2">
+<h2>Problem 3: Age and gender</h2>
+<p><strong>What is the age distribution of the sample like? Make sure you read the codebook to know what the variable values mean.</strong></p>
+<pre class="r"><code>hist(dat$age2, main= &quot;Histogram of ages of participants of 2019 NSDUH survey&quot;, xlab= &quot;Ages in Groups&quot;, ylab= &quot;Frequency&quot; )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-11-1.png" width="672" /> The age distribution is from ages 12-65+. As mentioned in the code book, it is grouped in sections. but not every group holds the same number of years. Because of this it is difficult to see the age distribution properly. While it appears that most participants are in group 15, group 15 has ages 35-49 (14 years) while groups 1-9 only have one year.</p>
+<p><strong>Do you think this age distribution representative of the US population? Why or why not?</strong></p>
+<p>Because of the way the ages are grouped together, this histogram is left skewed. However, there are no respondents below the age of 12, which makes sense given the content of this survey. There are also very few older participants. Therefore this data is probably a good representation of the US population for the purposes of this study, but obviously is not representative of the entire US population.</p>
+<p><strong>Is the sample balanced in terms of gender? If not, are there more females or males?</strong></p>
+<pre class="r"><code>table(dat$irsex)</code></pre>
+<pre><code>## 
+##  1  2 
+## 91 80</code></pre>
+<p>There are more males than females in this sample. It is not representative of the US population, because in the population there are slightly more women then men. This scale is also on a bianary, when there are many people in the United States who may not identify with one of these two genders. According to the code book, the entire data set has more females then males, but in these 1000 data points, there are more males then females.</p>
+<p><strong>Use this code to draw a stacked bar plot to view the relationship between sex and age. What can you conclude from this plot?</strong></p>
+<pre class="r"><code>tab.agesex &lt;- table(dat$irsex, dat$age2)
+barplot(tab.agesex,
+        main = &quot;Stacked barchart&quot;,
+        xlab = &quot;Age category&quot;, ylab = &quot;Frequency&quot;,
+        legend.text = rownames(tab.agesex),
+        beside = FALSE) # Stacked bars (default)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-13-1.png" width="672" /></p>
+<p>In the age category 15, that represents respondents between 35 and 49 and 26-29, there is about an even distribution between men and women. However, the younger groups tend to have more female participants then male (group 8 does not have any male respondents) and the groups above 15 seerm to have a larger percentage of men.</p>
+</div>
+<div id="problem-4-substance-use" class="section level2">
+<h2>Problem 4: Substance use</h2>
+<p><strong>For which of the three substances included in the dataset (marijuana, alcohol, and cigarettes) do individuals tend to use the substance earlier?</strong></p>
+<pre class="r"><code>par(mfrow=c (1,1))
+plot(dat$age2, dat$mjage)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<pre class="r"><code>cor(dat$age2, dat$mjage)</code></pre>
+<pre><code>## [1] 0.1811713</code></pre>
+<pre class="r"><code>cor(dat$age2, dat$cigage)</code></pre>
+<pre><code>## [1] 0.1697763</code></pre>
+<pre class="r"><code>plot(dat$age2, dat$cigage)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-14-2.png" width="672" /></p>
+<pre class="r"><code>cor(dat$age2, dat$iralcage)</code></pre>
+<pre><code>## [1] 0.07253557</code></pre>
+<pre class="r"><code>plot(dat$age2, dat$iralcage)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-14-3.png" width="672" /> People in the survey tended to use alcohol earlier than other substances. This can be seen by the scatter plots. Additionally, alcohol has the lowest correlation coefficient.</p>
+</div>
+<div id="problem-5-sexual-attraction" class="section level2">
+<h2>Problem 5: Sexual attraction</h2>
+<p><strong>What does the distribution of sexual attraction look like? Is this what you expected?</strong></p>
+<pre class="r"><code>counts &lt;- table(dat$sexatract)
+barplot(counts, main= &quot;Sexual Attraction Preferences Based on Small Sample from NSDUH 2019&quot;, xlab= &quot;Category&quot;, ylab=&quot;Number of Respondents&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-15-1.png" width="672" /> According to this bargraph, most people answered 1, which indicates preference for the opposite sex.This does not surprise me, as most people in the United States are heterosexual, however I would expect more people to answer 3 or 5.</p>
+<p><strong>What is the distribution of sexual attraction by gender?</strong></p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$sexatract)
+barplot(counts, main= &quot;Sexual Attraction Preferences Seperated by Gender &quot;, xlab=&quot;Categories&quot;, ylab= &quot;Number of Respondents&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-16-1.png" width="672" /></p>
+<p>Group 1, which is heterosexual, is mainly composed of males. While group 3, which is bisexual is completely female. Group 6, which is homosexual, is also completely male.</p>
+</div>
+<div id="problem-6-english-speaking" class="section level2">
+<h2>Problem 6: English speaking</h2>
+<p><strong>What does the distribution of English speaking look like in the sample? Is this what you might expect for a random sample of the US population?</strong></p>
+<pre class="r"><code>counts &lt;- table(dat$speakengl)
+barplot(counts, main= &quot;How Well Sample of Respondents of NSDUH 2019 Speak English&quot;, xlab=&quot;Categories&quot;, ylab=&quot;Number of Respondents&quot;  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-17-1.png" width="672" /></p>
+<p>Most participants speak English very well, very few speak well and almost none speak not well or none at all. If this survey was only given out in English, this distribution makes sense. But in the US population, while the majority of people speak English, many do not speak it “very well.”</p>
+<p><strong>Are there more English speaker female or males?</strong></p>
+<pre class="r"><code>counts &lt;- table(dat$irsex, dat$speakengl)
+barplot(counts, main= &quot;How Well Sample of Respondents of NSDUH 2019 Speak English Seperated by Gender&quot;, xlab=&quot;Categories&quot;, ylab=&quot;Number of Respondents&quot; )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<p>There are a similar number of males and females who speak English “very well” There are many more females who speak English “Well,” so overall there are more females then males who speak English.</p>
+</div>
+</div>
+<div id="exam-1" class="section level1">
+<h1>Exam 1</h1>
+<p>Date:</p>
+<div id="instructions" class="section level2">
+<h2>Instructions</h2>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
+<li><p>Download the dataset from the Canvas website (fatal-police-shootings-data.csv) onto that folder, and save your Exam 1.Rmd file in the same folder.</p></li>
+<li><p>Download the README.md file. This is the codebook.</p></li>
+<li><p>Load the data into an R data frame.</p></li>
+</ol>
+<pre class="r"><code>dat &lt;- read.csv(file = &#39;fatal-police-shootings-data.csv&#39;)
+
+head(dat)</code></pre>
+<pre><code>##   id               name       date  manner_of_death      armed age gender race
+## 1  3         Tim Elliot 2015-01-02             shot        gun  53      M    A
+## 2  4   Lewis Lee Lembke 2015-01-02             shot        gun  47      M    W
+## 3  5 John Paul Quintero 2015-01-03 shot and Tasered    unarmed  23      M    H
+## 4  8    Matthew Hoffman 2015-01-04             shot toy weapon  32      M    W
+## 5  9  Michael Rodriguez 2015-01-04             shot   nail gun  39      M    H
+## 6 11  Kenneth Joe Brown 2015-01-04             shot        gun  18      M    W
+##            city state signs_of_mental_illness threat_level        flee
+## 1       Shelton    WA                    True       attack Not fleeing
+## 2         Aloha    OR                   False       attack Not fleeing
+## 3       Wichita    KS                   False        other Not fleeing
+## 4 San Francisco    CA                    True       attack Not fleeing
+## 5         Evans    CO                   False       attack Not fleeing
+## 6       Guthrie    OK                   False       attack Not fleeing
+##   body_camera longitude latitude is_geocoding_exact
+## 1       False  -123.122   47.247               True
+## 2       False  -122.892   45.487               True
+## 3       False   -97.281   37.695               True
+## 4       False  -122.422   37.763               True
+## 5       False  -104.692   40.384               True
+## 6       False   -97.423   35.877               True</code></pre>
+</div>
+<div id="problem-1-10-points" class="section level2">
+<h2>Problem 1 (10 points)</h2>
+<div id="a.describe-the-dataset." class="section level3">
+<h3>a.Describe the dataset.</h3>
+<p>This is the source: <a href="https://github.com/washingtonpost/data-police-shootings" class="uri">https://github.com/washingtonpost/data-police-shootings</a>. Write two sentences (max.) about this.</p>
+<p>This data set is data collected by the Washington Post. It gives information about how many fatal shootings there were by an active duty police officer, and gives details about the victim (example: armed or unarmed.)</p>
+</div>
+<div id="b.-how-many-observations-are-there-in-the-data-frame" class="section level3">
+<h3>b. How many observations are there in the data frame?</h3>
+<pre class="r"><code>nrow(dat)</code></pre>
+<pre><code>## [1] 6594</code></pre>
+<p>There are 6594 observations in the data frame.</p>
+</div>
+<div id="c.-look-at-the-names-of-the-variables-in-the-data-frame.-describe-what-body_camera-flee-and-armed-represent-according-to-the-codebook.-again-only-write-one-sentence-max-per-variable." class="section level3">
+<h3>c. Look at the names of the variables in the data frame. Describe what “body_camera”, “flee”, and “armed” represent, according to the codebook. Again, only write one sentence (max) per variable.</h3>
+<pre class="r"><code>names(dat)</code></pre>
+<pre><code>##  [1] &quot;id&quot;                      &quot;name&quot;                   
+##  [3] &quot;date&quot;                    &quot;manner_of_death&quot;        
+##  [5] &quot;armed&quot;                   &quot;age&quot;                    
+##  [7] &quot;gender&quot;                  &quot;race&quot;                   
+##  [9] &quot;city&quot;                    &quot;state&quot;                  
+## [11] &quot;signs_of_mental_illness&quot; &quot;threat_level&quot;           
+## [13] &quot;flee&quot;                    &quot;body_camera&quot;            
+## [15] &quot;longitude&quot;               &quot;latitude&quot;               
+## [17] &quot;is_geocoding_exact&quot;</code></pre>
+<p>“Body_camera” indicates whether or not the officer was wearing a body camera that may have recorded part of the incident. “flee” represents whether or not the victim was moving away from the officers and how they fled. “armed” represents whether or not the victim was armed with something the officers belived could inflict harm and specifies what, if anything, the victims were carrying.</p>
+</div>
+<div id="d.-what-are-three-weapons-that-you-are-surprised-to-find-in-the-armed-variable-make-a-table-of-the-values-in-armed-to-see-the-options." class="section level3">
+<h3>d. What are three weapons that you are surprised to find in the “armed” variable? Make a table of the values in “armed” to see the options.</h3>
+<pre class="r"><code>table(dat$armed)</code></pre>
+<pre><code>## 
+##                                                   air conditioner 
+##                              207                                1 
+##                       air pistol                   Airsoft pistol 
+##                                1                                3 
+##                               ax                         barstool 
+##                               24                                1 
+##                     baseball bat          baseball bat and bottle 
+##                               20                                1 
+## baseball bat and fireplace poker           baseball bat and knife 
+##                                1                                1 
+##                            baton                           BB gun 
+##                                6                               15 
+##               BB gun and vehicle                     bean-bag gun 
+##                                1                                1 
+##                      beer bottle                       binoculars 
+##                                3                                1 
+##                     blunt object                           bottle 
+##                                5                                1 
+##                    bow and arrow                       box cutter 
+##                                1                               13 
+##                            brick              car, knife and mace 
+##                                2                                1 
+##                          carjack                            chain 
+##                                1                                3 
+##                        chain saw                         chainsaw 
+##                                2                                1 
+##                            chair              claimed to be armed 
+##                                4                                1 
+##               contractor&#39;s level                   cordless drill 
+##                                1                                1 
+##                         crossbow                          crowbar 
+##                                9                                5 
+##                        fireworks                         flagpole 
+##                                1                                1 
+##                       flashlight                      garden tool 
+##                                2                                2 
+##                      glass shard                          grenade 
+##                                4                                1 
+##                              gun                      gun and car 
+##                             3798                               12 
+##                    gun and knife                  gun and machete 
+##                               22                                3 
+##                    gun and sword                  gun and vehicle 
+##                                1                               17 
+##              guns and explosives                           hammer 
+##                                3                               18 
+##                       hand torch                          hatchet 
+##                                1                               14 
+##                  hatchet and gun                         ice pick 
+##                                2                                1 
+##                incendiary device                            knife 
+##                                2                              955 
+##                knife and vehicle                 lawn mower blade 
+##                                1                                2 
+##                          machete                  machete and gun 
+##                               51                                1 
+##                     meat cleaver                  metal hand tool 
+##                                6                                2 
+##                     metal object                       metal pipe 
+##                                5                               16 
+##                       metal pole                       metal rake 
+##                                4                                1 
+##                      metal stick                       microphone 
+##                                3                                1 
+##                       motorcycle                         nail gun 
+##                                1                                1 
+##                              oar                       pellet gun 
+##                                1                                3 
+##                              pen                     pepper spray 
+##                                1                                2 
+##                         pick-axe                    piece of wood 
+##                                4                                7 
+##                             pipe                        pitchfork 
+##                                7                                2 
+##                             pole                   pole and knife 
+##                                3                                2 
+##                  railroad spikes                             rock 
+##                                1                                7 
+##                    samurai sword                         scissors 
+##                                4                                9 
+##                      screwdriver                     sharp object 
+##                               16                               14 
+##                           shovel                            spear 
+##                                7                                2 
+##                          stapler              straight edge razor 
+##                                1                                5 
+##                            sword                            Taser 
+##                               23                               34 
+##                        tire iron                       toy weapon 
+##                                4                              226 
+##                          unarmed                     undetermined 
+##                              421                              188 
+##                   unknown weapon                          vehicle 
+##                               82                              213 
+##                  vehicle and gun              vehicle and machete 
+##                                8                                1 
+##                    walking stick                       wasp spray 
+##                                1                                1 
+##                           wrench 
+##                                1</code></pre>
+<p>I was surprised to find binoculars, air conditioners and a motorcycle, because these are not things that I would typically think of as weapons. I wonder who determined that these items were a threat.</p>
+</div>
+</div>
+<div id="problem-2-10-points" class="section level2">
+<h2>Problem 2 (10 points)</h2>
+<div id="a.-describe-the-age-distribution-of-the-sample.-is-this-what-you-would-expect-to-see" class="section level3">
+<h3>a. Describe the age distribution of the sample. Is this what you would expect to see?</h3>
+<pre class="r"><code>hist(dat$age, main= &quot;Frequency of ages of police shooting victims from Washington Post Data&quot;, xlab = &quot;Ages of victims&quot; )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-23-1.png" width="672" /></p>
+<p>The age distribution is right skewed. This means that most of the victims were younger (20-40) This is what I would expect to see, because police shootings typically happen to people who police “perceive as threats” and very old people typically wont be seen as threats.</p>
+</div>
+<div id="b.-to-understand-the-center-of-the-age-distribution-would-you-use-a-mean-or-a-median-and-why-find-the-one-you-picked." class="section level3">
+<h3>b. To understand the center of the age distribution, would you use a mean or a median, and why? Find the one you picked.</h3>
+<pre class="r"><code>counts &lt;- table(dat$age)
+
+median(counts)</code></pre>
+<pre><code>## [1] 66.5</code></pre>
+<p>Because this data is right skewed I used a median to find the center of age distribution. Outliers can have more of an impact on the mean, which would not make it as useful as a statistician.</p>
+</div>
+<div id="c.-describe-the-gender-distribution-of-the-sample.-do-you-find-this-surprising" class="section level3">
+<h3>c. Describe the gender distribution of the sample. Do you find this surprising?</h3>
+<pre class="r"><code>table(dat$gender)</code></pre>
+<pre><code>## 
+##         F    M 
+##    3  293 6298</code></pre>
+<p>The gender distribution is not even. There are far more men then women. This makes sense because police usually perceive men as more of a threat than women. Additionally, men are arrested more than women overall according to the FBI.</p>
+</div>
+</div>
+<div id="problem-3-10-points" class="section level2">
+<h2>Problem 3 (10 points)</h2>
+<div id="a.-how-many-police-officers-had-a-body-camera-according-to-news-reports-what-proportion-is-this-of-all-the-incidents-in-the-data-are-you-surprised-that-it-is-so-high-or-low" class="section level3">
+<h3>a. How many police officers had a body camera, according to news reports? What proportion is this of all the incidents in the data? Are you surprised that it is so high or low?</h3>
+<pre class="r"><code>table(dat$body_camera)</code></pre>
+<pre><code>## 
+## False  True 
+##  5684   910</code></pre>
+<pre class="r"><code>sum(table(dat$body_camera))</code></pre>
+<pre><code>## [1] 6594</code></pre>
+<pre class="r"><code> 5684/6594</code></pre>
+<pre><code>## [1] 0.8619958</code></pre>
+<p>There are many more people who were not wearing body cams then people who were. There were 5684 people not wearing body cams out of the 6594 recorded, which means 86.2 percent of officers did not have their cameras on. I would think that there would be more people wearing body cams in data recorded since 2015, because there has been a big push for more body cams in the recent years. However, many police officers do not turn on their body cameras.</p>
+</div>
+<div id="b.-in-how-many-of-the-incidents-was-the-victim-fleeing-what-proportion-is-this-of-the-total-number-of-incidents-in-the-data-is-this-what-you-would-expect" class="section level3">
+<h3>b. In how many of the incidents was the victim fleeing? What proportion is this of the total number of incidents in the data? Is this what you would expect?</h3>
+<pre class="r"><code>table(dat$flee)</code></pre>
+<pre><code>## 
+##                     Car        Foot Not fleeing       Other 
+##         491        1058         845        3952         248</code></pre>
+<pre class="r"><code>1058 + 845 + 3952 + 248</code></pre>
+<pre><code>## [1] 6103</code></pre>
+<pre class="r"><code>(1058 + 845 + 248)/6103</code></pre>
+<pre><code>## [1] 0.3524496</code></pre>
+<p>There are 491 pieces of missing data I excluded these from my calculations. I assume this means that the people who collected the data do not know whether the victims fled, but they did not make it clear. Additionally, I am assuming that “other” means people who fled in a different way then car or foot. There are a total of 6103 pieces of data (minus the data that was missing) and there are 845 people who fled on foot, 1058 by car and 248 by other. This means that only 35 percent of victims attempted to flee. I would expect it to be more, because police officers should not have to shoot people who are not fleeing. At the same time, if a victim is fleeing they may not be an imminent danger to a police officer (because they are running, not attacking), so it is possible the officers wouldn’t shoot.</p>
+</div>
+</div>
+<div id="problem-4-10-points---answer-only-one-of-these-a-or-b." class="section level2">
+<h2>Problem 4 (10 points) - Answer only one of these (a or <strong>b</strong>).</h2>
+<ol style="list-style-type: lower-alpha">
+<li>Describe the relationship between the variables “body camera” and “flee” using a stacked barplot. What can you conclude from this relationship?</li>
+</ol>
+<p><em>Hint 1: The categories along the x-axis are the options for “flee”, each bar contains information about whether the police officer had a body camera (vertically), and the height along the y-axis shows the frequency of that category).</em></p>
+<p><em>Hint 2: Also, if you are unsure about the syntax for barplot, run ?barplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
+<p><strong>Your answer here.</strong></p>
+<div id="b.-describe-the-relationship-between-age-and-race-by-using-a-boxplot.-what-can-you-conclude-from-this-relationship" class="section level3">
+<h3>b. Describe the relationship between age and race by using a boxplot. What can you conclude from this relationship?</h3>
+<p><em>Hint 1: The categories along the x-axis are the race categories and the height along the y-axis is age.</em></p>
+<p><em>Hint 2: Also, if you are unsure about the syntax for boxplot, run ?boxplot in R and see some examples at the bottom of the documentation. This is usually a good way to look up the syntax of R code. You can also Google it.</em></p>
+<pre class="r"><code>table(dat$race)</code></pre>
+<pre><code>## 
+##         A    B    H    N    O    W 
+##  752  106 1553 1083   91   47 2962</code></pre>
+<pre class="r"><code>plot(factor(dat$race), dat$age, main= &quot;Barplot of Age of Victims and Race&quot;,xlab= &quot;Race in Catagories&quot;, ylab= &quot;Age of victims&quot;,
+     names=c(&quot;unkown&quot;,&quot;Asian&quot;,&quot;Black&quot;,&quot;Hispanic&quot;,&quot;NA &quot;,&quot;Other&quot;,&quot;White&quot;))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-29-1.png" width="672" /></p>
+<p>NOTE there is missing data. The first bar plot represents “unknown” data. Black= Black Non-Hispanic, White= White, non-Hispanic, NA= Native American</p>
+<p>There is a clear distinction between the median age victims who are white and every other race (excluding unknown). The median age of victims who are white are much higher than the median age of victims of the other races. Additionally, the ages of white victims are much more evenly dispered. The box is close to the middle which shows a more even dispersion, and the box is longer which shows more dispersed data within Q2 and Q3. Native Americans and black victims have the lowest median age, although there are many outliers who are black. This data shows that victims or color tend to be younger than white victims of police shootings.</p>
+</div>
+</div>
+<div id="extra-credit-10-points" class="section level2">
+<h2>Extra credit (10 points)</h2>
+<div id="a.-what-does-this-code-tell-us" class="section level3">
+<h3>a. What does this code tell us?</h3>
+<pre class="r"><code>mydates &lt;- as.Date(dat$date)
+head(mydates)
+(mydates[length(mydates)] - mydates[1])
+
+2458/365</code></pre>
+<p>This code tells us the number of days of data we have. The data has been being kept since 2015, and it is now 2021. So it makes sense that the data is of 2458 says (6.7 years)</p>
+</div>
+<div id="b.-on-friday-a-new-report-was-published-that-was-described-as-follows-by-the-guardian-more-than-half-of-us-police-killings-are-mislabelled-or-not-reported-study-finds.-without-reading-this-article-now-due-to-limited-time-why-do-you-think-police-killings-might-be-mislabelled-or-underreported" class="section level3">
+<h3>b. On Friday, a new report was published that was described as follows by The Guardian: “More than half of US police killings are mislabelled or not reported, study finds.” Without reading this article now (due to limited time), why do you think police killings might be mislabelled or underreported?</h3>
+<p>It seems that police killings are underreported in federal data bases. According to the Washington Post Study, the FBI and CDC does not log as many fatal shootings as there actually are. Police killings are most likely under reported because it is a liability to police forces when one of their officers shoots and kills a victim. Additionally, as this data shows, minority victims tend to be younger, which demonstrates possible racial prejudice. Police killings are most likely misreported because people may blame death on other factors than a gun wound. If the cause of death is reported differently, then a victim would not be counted towards a police shooting death.</p>
+</div>
+<div id="c.-regarding-missing-values-in-problem-4-do-you-see-any-if-so-do-you-think-thats-all-thats-missing-from-the-data" class="section level3">
+<h3>c. Regarding missing values in problem 4, do you see any? If so, do you think that’s all that’s missing from the data?</h3>
+<p>In problem 4 the missing value is an unknown race. This differs from the race catagory of ‘other,’ which shows victims who do not identify as one of the specific racial categories laid out by the Washington Post. I assume that there is much more information missing in general. There is missing data about whether victims fled. There are probably many missing values of signs of mental illness, because that is not easy data to collect. Additionally, the data that the Washington Post collected is from many different sources, none of which have all the pieces data they wish to collect. Overall, there is probably a lot of data and variables missing that are important to understanding the full scope of the circumstances of the shooting. This data just shows us a very small lens of information.</p>
+</div>
+</div>
+</div>
+<div id="assignment-3" class="section level1">
+<h1>Assignment 3</h1>
+<p>I worked with Bella Werneck</p>
+<p>This assignment is due on Canvas on Wednesday 10/27/2021 before class, at 10:15 am. Include the name of anyone with whom you collaborated at the top of the assignment.</p>
+<p>Submit your responses as either an HTML file or a PDF file on Canvas. Also, please upload it to your website.</p>
+<p>Save the file (found on Canvas) crime_simple.txt to the same folder as this file (your Rmd file for Assignment 3).</p>
+<p>Load the data.</p>
+<pre class="r"><code>library(readr)
+library(knitr)
+dat_crime &lt;- read_delim(&quot;/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Test Github/crime_simple.txt&quot;, delim = &quot;\t&quot;)</code></pre>
+<pre><code>## Rows: 47 Columns: 14</code></pre>
+<pre><code>## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;\t&quot;
+## dbl (14): R, Age, S, Ed, Ex0, Ex1, LF, M, N, NW, U1, U2, W, X</code></pre>
+<pre><code>## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+<p>This is a dataset from a textbook by Brian S. Everitt about crime in the US in 1960. The data originate from the Uniform Crime Report of the FBI and other government sources. The data for 47 states of the USA are given.</p>
+<p>Here is the codebook:</p>
+<p>R: Crime rate: # of offenses reported to police per million population</p>
+<p>Age: The number of males of age 14-24 per 1000 population</p>
+<p>S: Indicator variable for Southern states (0 = No, 1 = Yes)</p>
+<p>Ed: Mean of years of schooling x 10 for persons of age 25 or older</p>
+<p>Ex0: 1960 per capita expenditure on police by state and local government</p>
+<p>Ex1: 1959 per capita expenditure on police by state and local government</p>
+<p>LF: Labor force participation rate per 1000 civilian urban males age 14-24</p>
+<p>M: The number of males per 1000 females</p>
+<p>N: State population size in hundred thousands</p>
+<p>NW: The number of non-whites per 1000 population</p>
+<p>U1: Unemployment rate of urban males per 1000 of age 14-24</p>
+<p>U2: Unemployment rate of urban males per 1000 of age 35-39</p>
+<p>W: Median value of transferable goods and assets or family income in tens of $</p>
+<p>X: The number of families per 1000 earning below 1/2 the median income</p>
+<p>We are interested in checking whether the reported crime rate (# of offenses reported to police per million population) and the average education (mean number of years of schooling for persons of age 25 or older) are related.</p>
+<p><strong>1. How many observations are there in the dataset? To what does each observation correspond?</strong></p>
+<pre class="r"><code>nrow(dat_crime)</code></pre>
+<pre><code>## [1] 47</code></pre>
+<pre class="r"><code>ncol(dat_crime)</code></pre>
+<pre><code>## [1] 14</code></pre>
+<pre class="r"><code>summary(dat_crime)</code></pre>
+<pre><code>##        R               Age              S                Ed       
+##  Min.   : 34.20   Min.   :119.0   Min.   :0.0000   Min.   : 87.0  
+##  1st Qu.: 65.85   1st Qu.:130.0   1st Qu.:0.0000   1st Qu.: 97.5  
+##  Median : 83.10   Median :136.0   Median :0.0000   Median :108.0  
+##  Mean   : 90.51   Mean   :138.6   Mean   :0.3404   Mean   :105.6  
+##  3rd Qu.:105.75   3rd Qu.:146.0   3rd Qu.:1.0000   3rd Qu.:114.5  
+##  Max.   :199.30   Max.   :177.0   Max.   :1.0000   Max.   :122.0  
+##       Ex0             Ex1               LF              M         
+##  Min.   : 45.0   Min.   : 41.00   Min.   :480.0   Min.   : 934.0  
+##  1st Qu.: 62.5   1st Qu.: 58.50   1st Qu.:530.5   1st Qu.: 964.5  
+##  Median : 78.0   Median : 73.00   Median :560.0   Median : 977.0  
+##  Mean   : 85.0   Mean   : 80.23   Mean   :561.2   Mean   : 983.0  
+##  3rd Qu.:104.5   3rd Qu.: 97.00   3rd Qu.:593.0   3rd Qu.: 992.0  
+##  Max.   :166.0   Max.   :157.00   Max.   :641.0   Max.   :1071.0  
+##        N                NW              U1               U2       
+##  Min.   :  3.00   Min.   :  2.0   Min.   : 70.00   Min.   :20.00  
+##  1st Qu.: 10.00   1st Qu.: 24.0   1st Qu.: 80.50   1st Qu.:27.50  
+##  Median : 25.00   Median : 76.0   Median : 92.00   Median :34.00  
+##  Mean   : 36.62   Mean   :101.1   Mean   : 95.47   Mean   :33.98  
+##  3rd Qu.: 41.50   3rd Qu.:132.5   3rd Qu.:104.00   3rd Qu.:38.50  
+##  Max.   :168.00   Max.   :423.0   Max.   :142.00   Max.   :58.00  
+##        W               X        
+##  Min.   :288.0   Min.   :126.0  
+##  1st Qu.:459.5   1st Qu.:165.5  
+##  Median :537.0   Median :176.0  
+##  Mean   :525.4   Mean   :194.0  
+##  3rd Qu.:591.5   3rd Qu.:227.5  
+##  Max.   :689.0   Max.   :276.0</code></pre>
+<pre class="r"><code>head(dat_crime)</code></pre>
+<pre><code>## # A tibble: 6 × 14
+##       R   Age     S    Ed   Ex0   Ex1    LF     M     N    NW    U1    U2     W
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  79.1   151     1    91    58    56   510   950    33   301   108    41   394
+## 2 164.    143     0   113   103    95   583  1012    13   102    96    36   557
+## 3  57.8   142     1    89    45    44   533   969    18   219    94    33   318
+## 4 197.    136     0   121   149   141   577   994   157    80   102    39   673
+## 5 123.    141     0   121   109   101   591   985    18    30    91    20   578
+## 6  68.2   121     0   110   118   115   547   964    25    44    84    29   689
+## # … with 1 more variable: X &lt;dbl&gt;</code></pre>
+<p>There are 47 observations in the data frame. Each row gives the data for each of the 47 states included in this data set. Each of the 47 rows includes data from each state which gives information about the 14 variables explained in the code book.</p>
+<p>out 4 variables of data from each state including, level of education, age and whether or not the states are in the South.</p>
+<p><strong>2. Draw a scatterplot of the two variables. Calculate the correlation between the two variables. Can you come up with an explanation for this relationship?</strong></p>
+<pre class="r"><code>plot(dat_crime$Ed, dat_crime$R, xlab= &quot;Average Years of Schooling x 10 for people over 25&quot;, ylab= &quot;Crime Rate per state According to 1960 UCR Data&quot;, main = &quot;Relationship between Level of Education and Crime Rate for 47 states in 1960 &quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-33-1.png" width="576" /></p>
+<pre class="r"><code>head(dat_crime)</code></pre>
+<pre><code>## # A tibble: 6 × 14
+##       R   Age     S    Ed   Ex0   Ex1    LF     M     N    NW    U1    U2     W
+##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1  79.1   151     1    91    58    56   510   950    33   301   108    41   394
+## 2 164.    143     0   113   103    95   583  1012    13   102    96    36   557
+## 3  57.8   142     1    89    45    44   533   969    18   219    94    33   318
+## 4 197.    136     0   121   149   141   577   994   157    80   102    39   673
+## 5 123.    141     0   121   109   101   591   985    18    30    91    20   578
+## 6  68.2   121     0   110   118   115   547   964    25    44    84    29   689
+## # … with 1 more variable: X &lt;dbl&gt;</code></pre>
+<pre class="r"><code>cor(dat_crime$Ed, dat_crime$R)</code></pre>
+<pre><code>## [1] 0.3228349</code></pre>
+<p>The correlation efficient is .3228349 which indicates a slight positive relationship between crime rate and level of education. This is not what I would have expected. It is important to note this is correlation not causation, so higher levels of education do not result in more crime. This data includes all crime types. It is possible that there area lot of white collar criminals which typically that the criminals have higher levels of education. Additionally this data is based on the crime reported, not all crime that has happened which could have an impact on the corelation. The correlation is not strong, but I would like to know why there is a positive correlation at all.</p>
+<p><strong>3. Regress reported crime rate (y) on average education (x) and call this linear model <code>crime.lm</code> and write the summary of the regression by using this code, which makes it look a little nicer <code>{r, eval=FALSE}  summary(crime.lm)$coef, digits = 2)</code>.</strong></p>
+<pre class="r"><code>lm( formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime) )</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime))
+## 
+## Coefficients:
+##  (Intercept)  dat_crime$Ed  
+##      -27.397         1.116</code></pre>
+<pre class="r"><code>lmCrime  &lt;- lm( formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime) )
+summary(lmCrime)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -60.061 -27.125  -4.654  17.133  91.646 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  -27.3967    51.8104  -0.529   0.5996  
+## dat_crime$Ed   1.1161     0.4878   2.288   0.0269 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 37.01 on 45 degrees of freedom
+## Multiple R-squared:  0.1042, Adjusted R-squared:  0.08432 
+## F-statistic: 5.236 on 1 and 45 DF,  p-value: 0.02688</code></pre>
+<pre class="r"><code>coef(lmCrime, digit = 2)</code></pre>
+<pre><code>##  (Intercept) dat_crime$Ed 
+##   -27.396654     1.116121</code></pre>
+<p><strong>4. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.)</strong></p>
+<pre class="r"><code>plot(dat_crime$Ed, lmCrime$residuals, main= &quot;Residuals vs. X&quot;, xlab = &quot;x, Average Years of Schooling x 10 per People Over 25&quot;, ylab = &quot;Residuals&quot; )
+abline(h = 0, lty = &quot;dashed&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-35-1.png" width="672" /> The linearity assumption is satisfied because the residuals vs X plot does not have a pattern around the horizontal line y=0.</p>
+<pre class="r"><code>plot(lmCrime, which = 1)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-36-1.png" width="672" /> The independent assumption is satisfied because not only does the residuals vs X plot not have a pattern around the horizontal line x, also the residuals vs fitted shows no pattern.</p>
+<pre class="r"><code>plot(lmCrime, which = 3)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-37-1.png" width="672" /></p>
+<p>The equal variance assumption helps us analyze the homoskedasticity assumption, which is satisfied because the red line is close to being horizontal.</p>
+<pre class="r"><code>plot(lmCrime, which=2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-38-1.png" width="672" /> The normal QQ plot tells us that the normal population is slightly right skewed, there is a light tail, which means the distribution isn’t normal.</p>
+<p><strong>5. Is the relationship between reported crime and average education statistically significant? Report the estimated coefficient of the slope, the standard error, and the p-value. What does it mean for the relationship to be statistically significant?</strong></p>
+<pre class="r"><code>summary(lmCrime)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = dat_crime$R ~ dat_crime$Ed, data = (dat_crime))
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -60.061 -27.125  -4.654  17.133  91.646 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)  
+## (Intercept)  -27.3967    51.8104  -0.529   0.5996  
+## dat_crime$Ed   1.1161     0.4878   2.288   0.0269 *
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 37.01 on 45 degrees of freedom
+## Multiple R-squared:  0.1042, Adjusted R-squared:  0.08432 
+## F-statistic: 5.236 on 1 and 45 DF,  p-value: 0.02688</code></pre>
+<p>The p value is less than 0.05 so the relationship between reported crime and average education is stastistically significant. A relationship is statistically significant when you can reject the null hypothesis.</p>
+<p><strong>6. How are reported crime and average education related? In other words, for every unit increase in average education, how does reported crime rate change (per million) per state?</strong></p>
+<p>For every unit increase in average education, the crime rate changes 1.1161 per million per state.</p>
+<p><strong>7. Can you conclude that if individuals were to receive more education, then crime will be reported more often? Why or why not?</strong></p>
+<p>No. Correlation does not mean causation. Just because there seems to be a positive corelation between level of education and reported crime rates, does not mean that more education CAUSES more crime.</p>
+</div>
+<div id="exam-2" class="section level1">
+<h1>Exam 2</h1>
+<ol style="list-style-type: lower-alpha">
+<li><p>Create a folder in your computer (a good place would be under Crim 250, Exams).</p></li>
+<li><p>Download the dataset from the Canvas website (sim.data.csv) onto that folder, and save your Exam 2.Rmd file in the same folder.</p></li>
+<li><p>Data description: This dataset provides (simulated) data about 200 police departments in one year. It contains information about the funding received by the department as well as incidents of police brutality. Suppose this dataset (sim.data.csv) was collected by researchers to answer this question: <strong>“Does having more funding in a police department lead to fewer incidents of police brutality?”</strong></p></li>
+<li><p>Codebook:</p></li>
+</ol>
+<ul>
+<li>funds: How much funding the police department received in that year in millions of dollars.</li>
+<li>po.brut: How many incidents of police brutality were reported by the department that year.</li>
+<li>po.dept.code: Police department code</li>
+</ul>
+<p><strong>Problem 1: EDA (10 points)</strong></p>
+<p>Describe the dataset and variables. Perform exploratory data analysis for the two variables of interest: funds and po.brut.</p>
+<pre class="r"><code>dat &lt;- read.csv(file = &quot;/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Test Github/sim.data.csv&quot;)
+
+names(dat)</code></pre>
+<pre><code>## [1] &quot;po.dept.code&quot; &quot;funds&quot;        &quot;po.brut&quot;</code></pre>
+<pre class="r"><code>summary(dat)</code></pre>
+<pre><code>##   po.dept.code        funds          po.brut     
+##  Min.   :  1.00   Min.   :21.40   Min.   : 0.00  
+##  1st Qu.: 50.75   1st Qu.:51.67   1st Qu.:14.00  
+##  Median :100.50   Median :59.75   Median :19.00  
+##  Mean   :100.50   Mean   :61.04   Mean   :18.14  
+##  3rd Qu.:150.25   3rd Qu.:72.17   3rd Qu.:22.00  
+##  Max.   :200.00   Max.   :99.70   Max.   :29.00</code></pre>
+<pre class="r"><code>nrow(dat)</code></pre>
+<pre><code>## [1] 200</code></pre>
+<pre class="r"><code>ncol(dat)</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>head(dat)</code></pre>
+<pre><code>##   po.dept.code funds po.brut
+## 1            1  48.1      23
+## 2            2  81.4      10
+## 3            3  41.8      25
+## 4            4  61.7      19
+## 5            5  86.4       8
+## 6            6  51.6      22</code></pre>
+<pre class="r"><code>hist(dat$funds, main=&quot;Histogram of Funds Recived by Police Department (in millions)&quot;, xlab= &quot;Amount of funds in millions&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-40-1.png" width="672" /></p>
+<pre class="r"><code>hist(dat$po.brut, main=&quot;Histograms of instances of Police Brutality recorded in a year&quot;, xlab= &quot;Recorded instances of Police Brutality&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-40-2.png" width="672" /></p>
+<pre class="r"><code>plot(dat$funds, dat$po.brut, main = &quot;Plot of Funds vs Instances of Police Brutality&quot;, xlab = &quot;Funds in millions &quot;, ylab = &quot;Recorded instances of Police Brutality&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-40-3.png" width="672" /></p>
+<pre class="r"><code>cor(dat$funds, dat$po.brut)</code></pre>
+<pre><code>## [1] -0.9854706</code></pre>
+<p>There are 200 observations in this data set which is based on simulated information. There are 3 different variables: funds-the amount of funds the police department receive in a year (in millions), po.brut- how many incidents of police brutality were reported in that year, and po.dept.code- which is the police department code.</p>
+<p>The mean funds (in millions) received by one of the 200 police departments is 61.04 and the median is 59.75. The mean incidences of police brutality recorded is 18.14 and the median is 19.00.</p>
+<p>Both funding and number of recorded instances of police brutality are numeric variables. When looking at the histogram of both variables they look normally distributed. Recorded instances of police brutality looks slightly left skewed, although the data set is small so it might not matter.</p>
+<p>The plot of funds vs instances looks to have a linear relationship</p>
+<p><strong>Problem 2: Linear regression (30 points)</strong></p>
+<p><em>a. Perform a simple linear regression to answer the question of interest. To do this, name your linear model “reg.output” and write the summary of the regression by using “summary(reg.output)”.</em></p>
+<pre class="r"><code>reg_output &lt;- lm(formula = po.brut ~ funds, data = dat)
+
+summary(reg_output)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = po.brut ~ funds, data = dat)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -3.9433 -0.2233  0.2544  0.5952  1.1803 
+## 
+## Coefficients:
+##              Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept) 40.543069   0.282503  143.51   &lt;2e-16 ***
+## funds       -0.367099   0.004496  -81.64   &lt;2e-16 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 0.9464 on 198 degrees of freedom
+## Multiple R-squared:  0.9712, Adjusted R-squared:  0.971 
+## F-statistic:  6666 on 1 and 198 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p><em>b. Report the estimated coefficient, standard error, and p-value of the slope. Is the relationship between funds and incidents statistically significant? Explain.</em></p>
+<p>The estimated coefficient is -0.367099, the standard error is 0.282503, and the p-value of the slope is 2.2e-16. The p value is significantly lower that 0.05 so the relationship between funds and instances of police brutality is statistically significant. The null hypothesis is rejected.</p>
+<p><em>c. Draw a scatterplot of po.brut (y-axis) and funds (x-axis). Right below your plot command, use abline to draw the fitted regression line, like this:</em></p>
+<pre class="r"><code>plot( dat$funds, dat$po.brut, main = &quot;Plot of Funds vs Instances of Police Brutality&quot;, xlab = &quot;Funds in millions &quot;, ylab = &quot;Recorded instances of Police Brutality&quot;)
+abline(reg_output, col = &quot;red&quot;, lwd=2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-42-1.png" width="384" /> <strong>Does the line look like a good fit? Why or why not?</strong></p>
+<p>This line seems to be a good fit, there are some points that are off the line. There does not look to be any extreme outliers. There is a negative correlation between funds and number of instances of police brutality, meaning for lower funds instances of police brutality go down on average, which makes sense because the correlation coefficient is negative. It is important to note that this is a correlation not a causation.</p>
+<p><strong>d. Are the four assumptions of linear regression satisfied? To answer this, draw the relevant plots. (Write a maximum of one sentence per assumption.) If not, what might you try to do to improve this (if you had more time)?</strong></p>
+<pre class="r"><code>plot(dat$funds, reg_output$residuals, main= &quot;Residuals vs. X&quot;, xlab = &quot;x, Amount of Police funding in millions&quot;, ylab = &quot;Residuals&quot; )
+abline(h = 0, lty = &quot;dashed&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-43-1.png" width="672" /></p>
+<pre class="r"><code>plot(reg_output, which = 1)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-43-2.png" width="672" /> The linearity assumption is not satisfied. There looks to be a pattern around the horizontal line Y=0. There seems to be a curved line. The residuals vs fitted line also has a clear curved line going through the data, rather than flat which further proves the linearity assumption is not satisfied.</p>
+<pre class="r"><code>plot(dat$funds, reg_output$residuals, main= &quot;Residuals vs. X&quot;, xlab = &quot;x, Amount of Police funding in millions&quot;, ylab = &quot;Residuals&quot; )
+abline(h = 0, lty = &quot;dashed&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-44-1.png" width="672" /> The independence assumption is not satisfied because there is a clear pattern when plotting the residuals vs X. This most likely means that this is not a random data set.</p>
+<pre class="r"><code>plot(reg_output, which= 3)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-45-1.png" width="672" /></p>
+<p>The equal variance assumption is not satisfied. There is a clear trend to the line of this plot, which means that the residuals has a non-constant variance. This means that the data is not homoscedastic, which you can further prove because on the scale location plot the points tend to cluster in one part of the plot.</p>
+<pre class="r"><code>plot(reg_output, which = 2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-46-1.png" width="672" /></p>
+<p>The normal qq plot tells us that the population in this data set is skewed left, meaning the distribution isn’t normal.</p>
+<p>If I had more time, I would explore other ways to analyze the data. Perhaps there is not a linear relationship.</p>
+<p><strong>e. Answer the question of interest based on your analysis.</strong></p>
+<p>The question of interest <strong>“Does having more funding in a police department lead to fewer incidents of police brutality?”</strong> is unable to be answered given the data provided. Although the initial scatter plot seems to have a line that is straight, upon further analysis it is clear the assumptions of linear regression are not satisfied. Because of this, we cannot make inferences based on this data.</p>
+<p><strong>Problem 3: Data ethics (10 points)</strong></p>
+<p>Describe the dataset. Considering our lecture on data ethics, what concerns do you have about the dataset? Once you perform your analysis to answer the question of interest using this dataset, what concerns might you have about the results?</p>
+<p>I have concerns about the assumptions that would be made from this data set. The questions the researchers are asking could have serious implications for police departments and their funding, and using this small sample of data is not enough to make an inference.</p>
+<p>It is important to note that the data is from only 200 police stations. This is not enough data to make any inferences. This data should have been taken from all of the police stations. We also do not know which police stations this data was taken from. According to the residuals vs X plot, it is possible that the data set is not random.</p>
+<p>It is unethical for this data to be cherry picked, but it is not stated that the data included is random. It should be considered who picked to include this data in the set.</p>
+<p>The data does not take into account other factors including who decided to report this information.</p>
+<p>If a police department just looks at the scatterplot of the x and y variables, it looks as though there is a linear correlation, and the p value is below 0.05 which would mean that the null hypothesis is rejected. One may read this data and <strong>assume</strong> that as funding increases, instances of police brutality would go down. Police departments might use this inference to decide the best way to stop police brutality would be to increase funding.</p>
+<p>Additionally, all of the assumptions of linear regression are not satisfied, which means you cannot trust the linear relationship found by the scatterplot graph of funds and instances of police brutality.</p>
+</div>
+<div id="assignment-4" class="section level1">
+<h1>Assignment 4</h1>
+<div id="learning-about-gg-plot" class="section level2">
+<h2>Learning about gg plot</h2>
+<div id="basics" class="section level3">
+<h3><em>basics</em></h3>
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ tibble  3.1.4     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ purrr   0.3.4     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()
+## x purrr::map()    masks maps::map()</code></pre>
+<p>I installed a new package from the library. You only have to install it once, but you have to reload everytime you use it in a new session.</p>
+<pre class="r"><code>head(mpg)</code></pre>
+<pre><code>## # A tibble: 6 × 11
+##   manufacturer model displ  year   cyl trans      drv     cty   hwy fl    class 
+##   &lt;chr&gt;        &lt;chr&gt; &lt;dbl&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt;      &lt;chr&gt; &lt;int&gt; &lt;int&gt; &lt;chr&gt; &lt;chr&gt; 
+## 1 audi         a4      1.8  1999     4 auto(l5)   f        18    29 p     compa…
+## 2 audi         a4      1.8  1999     4 manual(m5) f        21    29 p     compa…
+## 3 audi         a4      2    2008     4 manual(m6) f        20    31 p     compa…
+## 4 audi         a4      2    2008     4 auto(av)   f        21    30 p     compa…
+## 5 audi         a4      2.8  1999     6 auto(l5)   f        16    26 p     compa…
+## 6 audi         a4      2.8  1999     6 manual(m5) f        18    26 p     compa…</code></pre>
+<p>This is the data set mpg which is given to us by ggplot2.</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-49-1.png" width="672" /> First I used ggplot(data = mpg) to make a wmpty graph. To add to the graph first you go gemo_point which adds layers. Then you have to add mapping with aes to give the Y and X axis variables Afrom the data set.</p>
+<pre class="r"><code>#ggplot(data = mpg) + 
+  #&lt;GEOM_FUNCTION&gt;(mapping = aes(&lt;MAPPINGS&gt;))
+# +ggtible
+# +labs</code></pre>
+<p>This is a blank template to use to create a graph in ggplot2. To add titles and axis names add +tit ### <em>aesthetics</em></p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, color = class))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-51-1.png" width="672" /> You can add a third varibale to a two dementional plot. In this case we added the third variable and made it differentiated by color. This plot will also add a legend, you can label the legend by saying +labs(color= “title”)</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, size = class))</code></pre>
+<pre><code>## Warning: Using size for a discrete variable is not advised.</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-52-1.png" width="672" /></p>
+<pre class="r"><code>#&gt; Warning: Using size for a discrete variable is not advised.
+
+# Left
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, alpha = class))</code></pre>
+<pre><code>## Warning: Using alpha for a discrete variable is not advised.</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-52-2.png" width="672" /></p>
+<pre class="r"><code># Right
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy, shape = class))</code></pre>
+<pre><code>## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 7. Consider
+## specifying shapes manually if you must have them.</code></pre>
+<pre><code>## Warning: Removed 62 rows containing missing values (geom_point).</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-52-3.png" width="672" /></p>
+<p>There are other aesthetics you can change the third variable with on a ggplot graph. Above there is alpha, which is transparency, shape, which changes the shape, and size.</p>
+<p>NOTE: ggplot2 will only use up to six shapes.</p>
+</div>
+<div id="subplots" class="section level3">
+<h3><em>Subplots</em></h3>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-53-1.png" width="672" /> Facets break down plots to single variables. You have to use a discrete variable. you use facet_wrap() followed by a formula which starts with ~. In this graph, we used the class of car, same as above but seperated the cars.</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-54-1.png" width="672" /></p>
+<pre class="r"><code>?mpg</code></pre>
+<p>This function plotted two different variables on a grid.</p>
+</div>
+<div id="geometric-objects" class="section level3">
+<h3><em>Geometric Objects</em></h3>
+<p>The different visual objects that ggplot2 uses are called geoms.</p>
+<p>There are different geoms that will create different types of graphs, geom_point makes scatter plots, geom_smooth makes lines.</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_smooth(mapping = aes(x = displ, y = hwy, linetype = drv))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-55-1.png" width="672" /></p>
+<p>Just like you can change the shape of a point on a scatter plot, you can change the type of line using geom_smooth. If you add another variable, in this case drv, you can make the new variable show different lines.</p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) + 
+  geom_point(mapping = aes( color = class))+ 
+  geom_smooth(color = &quot;red&quot;)</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-56-1.png" width="672" /> You can also use multiple geoms on one graph. This one has point and smooth.</p>
+<pre class="r"><code>ggplot(data = diamonds) +
+geom_bar(mapping = aes(x = cut ))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-57-1.png" width="672" /></p>
+<p>This ia a bar chart made with ggplot. The labels are automatic from the data set. If you want to change them, you have to use tribble.</p>
+<pre class="r"><code>demo &lt;- tribble(
+  ~cut,         ~freq,
+  &quot;Fair&quot;,       1610,
+  &quot;Good&quot;,       4906,
+  &quot;Very Good&quot;,  12082,
+  &quot;Premium&quot;,    13791,
+  &quot;Ideal&quot;,      21551
+)
+
+#the section above identifies things
+
+ggplot(data = demo) +
+  geom_bar(mapping = aes(x = cut, y = freq), stat = &quot;identity&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-58-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  stat_summary(
+    mapping = aes(x = cut, y = depth),
+    fun.min = min,
+    fun.max = max,
+    fun = median
+  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-58-2.png" width="672" /></p>
+</div>
+<div id="adding-color-to-par-charts" class="section level3">
+<h3><em>Adding color to par charts</em></h3>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, colour = cut))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-59-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = cut))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-59-2.png" width="672" /></p>
+<p>Fill is a good way to add color</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-60-1.png" width="672" /> you can also add other variables when you want to add more color.</p>
+<pre class="r"><code>ggplot(data = diamonds, mapping = aes(x = cut, fill = clarity)) + 
+  geom_bar(alpha = 1/5, position = &quot;identity&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-61-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = diamonds, mapping = aes(x = cut, colour = clarity)) + 
+  geom_bar(fill = NA, position = &quot;identity&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-61-2.png" width="672" /></p>
+<p>the “identity” places the objects where they fall in the graph. Sometimes this means you have to make the bars more transparent using alpha.</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = &quot;fill&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-62-1.png" width="672" /></p>
+<p>The position = fill makes each stack of bars the same height. This is usefull to see the relationship between things.</p>
+<pre class="r"><code>ggplot(data = diamonds) + 
+  geom_bar(mapping = aes(x = cut, fill = clarity), position = &quot;dodge&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-63-1.png" width="672" /></p>
+<p>Position = dodge puts overlapping objects beside each other</p>
+<pre class="r"><code>ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy), position = &quot;jitter&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-64-1.png" width="672" /></p>
+<p>Position= jitter this adds random noise to each point. Adding randomness to your plot makes it more appealing at large scales.</p>
+</div>
+<div id="coordinate-systems" class="section level3">
+<h3><em>Coordinate Systems</em></h3>
+<p>The default coordinate system in ggplot is cartesian (x,y) sometimes it is useful to change it.</p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot()</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-65-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(data = mpg, mapping = aes(x = class, y = hwy)) + 
+  geom_boxplot() +
+  coord_flip()</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-65-2.png" width="672" /></p>
+<p>This switches the x and y axis. This is helpful is you want horizontal barplots.</p>
+<pre class="r"><code>nz &lt;- map_data(&quot;nz&quot;)
+
+ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = &quot;white&quot;, colour = &quot;black&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-66-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(nz, aes(long, lat, group = group)) +
+  geom_polygon(fill = &quot;white&quot;, colour = &quot;black&quot;) +
+  coord_quickmap()</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-66-2.png" width="672" /></p>
+<p>coord_quickmap() sets the aspect ratio correctly for maps</p>
+<pre class="r"><code>bar &lt;- ggplot(data = diamonds) + 
+  geom_bar(
+    mapping = aes(x = cut, fill = cut), 
+    show.legend = FALSE,
+    width = 1
+  ) + 
+  theme(aspect.ratio = 1) +
+  labs(x = NULL, y = NULL)
+
+bar + coord_flip()</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-67-1.png" width="672" /></p>
+<pre class="r"><code>bar + coord_polar()</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-67-2.png" width="672" /></p>
+<p>This uses polar coordinates</p>
+</div>
+<div id="general-ggplot-format" class="section level3">
+<h3><strong>General ggplot format</strong></h3>
+<p>ggplot(data = <DATA>) + <GEOM_FUNCTION>( mapping = aes(<MAPPINGS>), stat = <STAT>, position = <POSITION> ) + <COORDINATE_FUNCTION> + <FACET_FUNCTION></p>
+</div>
+<div id="labeling-in-ggplot" class="section level3">
+<h3><em>Labeling in ggplot</em></h3>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    title = &quot;Fuel efficiency generally decreases with engine size&quot;,
+    subtitle = &quot;Two seaters (sports cars) are an exception because of their light weight&quot;,
+    caption = &quot;Data from fueleconomy.gov&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-68-1.png" width="672" /></p>
+<p>In EDA it is important to label your data. the labs function adds titles. You can also add subtitles and captions, which go at the bottom of the plot.</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_smooth(se = FALSE) +
+  labs(
+    x = &quot;Engine displacement (L)&quot;,
+    y = &quot;Highway fuel economy (mpg)&quot;,
+    colour = &quot;Car type&quot;
+  )</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-69-1.png" width="672" /></p>
+<p>The labs function can also be used to change the x and y axis variable names.</p>
+<pre class="r"><code>df &lt;- tibble(
+  x = runif(10),
+  y = runif(10)
+)
+ggplot(df, aes(x, y)) +
+  geom_point() +
+  labs(
+    x = quote(sum(x[i] ^ 2, i == 1, n)),
+    y = quote(alpha + beta + frac(delta, theta))
+  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-70-1.png" width="672" /></p>
+<p>You can alternatively use math equations instead of labels. To find them look up ?plotmath</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(colour = class)) +
+  geom_label(aes(label = model), data = best_in_class, nudge_y = 2, alpha = 0.5)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-71-1.png" width="672" /></p>
+</div>
+<div id="annotations" class="section level3">
+<h3><em>annotations</em></h3>
+<p>It is also useful to add annotations to EDA. geom_point() is a way to add text to your graphs. Using nudge_y, you move the labels up a bit so it doesn’t cover the data, alpha makes the labels see through.</p>
+<pre class="r"><code>best_in_class &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  filter(row_number(desc(hwy)) == 1)
+
+class_avg &lt;- mpg %&gt;%
+  group_by(class) %&gt;%
+  summarise(
+    displ = median(displ),
+    hwy = median(hwy)
+  )
+#&gt; `summarise()` ungrouping output (override with `.groups` argument)
+
+ggplot(mpg, aes(displ, hwy, colour = class)) +
+  ggrepel::geom_label_repel(aes(label = class),
+    data = class_avg,
+    size = 6,
+    label.size = 0,
+    segment.color = NA
+  ) +
+  geom_point() +
+  theme(legend.position = &quot;none&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-72-1.png" width="672" /></p>
+<p>This code removes the legend and puts the label directly on the graph.</p>
+<pre class="r"><code>label &lt;- mpg %&gt;%
+  summarise(
+    displ = max(displ),
+    hwy = max(hwy),
+    label = &quot;Increasing engine size is \nrelated to decreasing fuel economy.&quot;
+  )
+
+ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  geom_text(aes(label = label), data = label, vjust = &quot;top&quot;, hjust = &quot;right&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-73-1.png" width="672" /></p>
+<p>In order to add a single label to the plot, you have to make a data frame. In order for the label to be in the corner, just use the maximin x and y values.</p>
+</div>
+<div id="changing-the-axis" class="section level3">
+<h3><em>Changing the Axis</em></h3>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_y_continuous(breaks = seq(15, 40, by = 5))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-74-1.png" width="672" /></p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point() +
+  scale_x_continuous(labels = NULL) +
+  scale_y_continuous(labels = NULL)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-74-2.png" width="672" /></p>
+<p>It is possible to change the distance between ticks on the graph. Alternatively, using null, you can remove labels completely.</p>
+</div>
+<div id="color" class="section level3">
+<h3><em>Color</em></h3>
+<p>The R brewer color package provides a good set of colors to use.</p>
+<pre class="r"><code>ggplot(mpg, aes(displ, hwy)) +
+  geom_point(aes(color = drv, shape = drv)) +
+  scale_colour_brewer(palette = &quot;Set1&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-75-1.png" width="672" /></p>
+<pre class="r"><code>presidential %&gt;%
+  mutate(id = 33 + row_number()) %&gt;%
+  ggplot(aes(start, id, colour = party)) +
+    geom_point() +
+    geom_segment(aes(xend = end, yend = id)) +
+    scale_colour_manual(values = c(Republican = &quot;red&quot;, Democratic = &quot;blue&quot;))</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-76-1.png" width="672" /></p>
+<p>This allows you to add certain colors to certain data.</p>
+</div>
+<div id="zooming" class="section level3">
+<h3><em>Zooming</em></h3>
+<pre class="r"><code>ggplot(mpg, mapping = aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth() +
+  coord_cartesian(xlim = c(5, 7), ylim = c(10, 30))</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-77-1.png" width="672" /></p>
+<pre class="r"><code>mpg %&gt;%
+  filter(displ &gt;= 5, displ &lt;= 7, hwy &gt;= 10, hwy &lt;= 30) %&gt;%
+  ggplot(aes(displ, hwy)) +
+  geom_point(aes(color = class)) +
+  geom_smooth()</code></pre>
+<pre><code>## `geom_smooth()` using method = &#39;loess&#39; and formula &#39;y ~ x&#39;</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-77-2.png" width="672" /></p>
+<p>coord_cartesian() allows you to zoom into plots. You can also set limits.</p>
+<p>You can also add themes and other colors by installing other packages.</p>
+</div>
+</div>
+</div>
+<div id="final-write-up" class="section level1">
+<h1>Final Write Up</h1>
+<p>University of Pennsylvania</p>
+<p>Andrew Santillan, Isabella Werneck, Kaiyla Jolley, and Niko Amber</p>
+<p>December 12th, 2021</p>
+<div id="introduction" class="section level2">
+<h2><em>1. Introduction</em></h2>
+<p>Following Donald Trump’s presidential election in 2016, there has been a substantial increase in hate crimes in the United States. According to the FBI’s report on hate crime statistics, hate crimes have increased from 6,121 incidents in 2016 to 7,314 in 2019—a 19.49 percent increase in only 3 years (FBI, 2019). This spike in hate crimes is commonly associated with Trump’s inflammatory rhetoric during his political campaign and his subsequent win in the 2016 elections (Edwards &amp; Rushin, 2018). Critics say that his victory emboldened hate crime perpetrators, which led to an increase in hate crimes. This was dubbed as the “Trump Effect” (Edwards &amp; Rushin, 2018). Data shows that anti-immigrant sentiment, racism, and sexism are common among Trump’s supporters (Sharffner et al, 2018), which may suggest that they are more likely than non-supporters to commit hate crimes against minority groups. In this report, we analyze the correlation between states’ political leaning in the 2020 elections and the associated hate crime rates in 2021. The data used in this report contains voting results per state from the 2020 elections and hate crime numbers per state in 2019, which is divided into six bias categories.</p>
+<div id="research-question-and-hypothesis" class="section level3">
+<h3><em>1.1 Research Question and Hypothesis</em></h3>
+<p>Our research question is the following: Is there a relationship between a state’s political affiliation in the 2020 Presidential election and hate crime data as reported to the FBI? Following the assumption that individuals who voted for Trump are more likely to commit a hate crime, we expect to find that states that mostly voted Republican in 2020 had higher hate crime rates in 2019</p>
+</div>
+</div>
+<div id="exploratory-data-analysis" class="section level2">
+<h2><em>2 Exploratory Data Analysis</em></h2>
+<div id="data-description" class="section level3">
+<h3><em>2.1 Data Description</em></h3>
+<p>The dataset in this report contains data from the FBI 2019 Hate Crime Statistics (FBI, 2019) and from the Official 2020 Presidential General Election Results (FEC, 2021). The hate crime data was collected through the Uniform Crime Reporting (UCR) Program and it includes both single-bias and multiple-bias hate crimes. The synthesized dataset contains 50 observations and 14 variables. Six of the variables correspond to the hate crime categories, which include the following biases: race, religion, sexual orientation, disability, gender, and gender identity.</p>
+</div>
+<div id="missing-values" class="section level3">
+<h3><em>2.2 Missing Values</em></h3>
+<p>Only 49 American states were included in the observations. Alabama did not report to the UCR Program, and so it was excluded from the dataset. Washington D.C. reported to the UCR as a separate entity, and so it was included as a separate observation. It is important to note that participation in the Federal UCR Program Initiative is voluntary, which means that state jurisdictions can choose not to report. In the case of Alabama, the entire state chose not to participate in the UCR Program, but for all other states there are jurisdictions missing from the dataset. Therefore, there is a distinction between total state population and population covered. The term “population covered” means the total population covered by the jurisdictions that chose to report. For example, the total population of Florida is 21.5 million, and the population covered is approximately 20.9 million. Due to the voluntary nature of the UCR Program, there are many missing values in the dataset.</p>
+</div>
+<div id="percentage-of-population-that-reported-to-the-fbi" class="section level3">
+<h3><em>2.3 Percentage of population that reported to the FBI</em></h3>
+<pre class="r"><code>dat &lt;- read.csv(file = &quot;/Users/nikoamber/Library/Mobile Documents/com~apple~CloudDocs/Penn/Freshman Fall/Criminology/Final Data - Final Project Data with Rates.csv&quot;)
+library(tidyverse)
+
+library(usmap)
+
+plot_usmap(data = dat, values = &quot;pop_rat&quot;) +
+   scale_fill_continuous( low = &quot;white&quot;, high = &quot;navy&quot;, 
+                         name = &quot;Population Reported&quot;, label = scales::comma
+  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-78-1.png" width="672" /> ### <em>2.4 Total hate crime per state</em></p>
+<pre class="r"><code>plot_usmap(data = dat, values = &quot;rate&quot;) +
+   scale_fill_continuous( low = &quot;navy&quot;, high = &quot;white&quot;, 
+                         name = &quot;Rate of Hate Crimes&quot;, label = scales::comma
+  )</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-79-1.png" width="672" /></p>
+</div>
+<div id="codebook" class="section level3">
+<h3><em>2.5 Codebook</em></h3>
+<p>pop_cov: Population covered by FBI pop_tot: Total state population pop_rat: Population covered by FBI/total state population perc_rep: Percentage of population that voted for Trump perc_dem: Percentage of population that voted for Biden rep_dem: Republican (R) rate: Number of hate crimes reported per 100,000 Rate_rea: number of racially motivated hate crime per 100,000 Rate_rel: number of hate crimes against religion per 100,000 Rate_sex: number of hate crimes against sexual orientation per 100,000 Rate_dis: number of hate crimes against disabilities per 100,000 Rate_gen: number of hate crimes against gender per 100,000 Rate_gei: number of hate crimes against gender identity per 100,000</p>
+</div>
+</div>
+<div id="scatterplots" class="section level2">
+<h2><em>2.6 Scatterplots</em></h2>
+<p><em>Note: We have labelled significant outlines to facilitate visial analysis.</em></p>
+<p><em>Please see codebook for variable names</em></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Total Hate Crime</strong></p>
+<pre class="r"><code># rate Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate,
+  ylab=&quot;rate Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40),
+  y=c(31.464),
+  labels=c(&quot;D.C.&quot;),
+  pos=1
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-80-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Race/Ethnicity Hate Crime</strong></p>
+<pre class="r"><code># rate_rea Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_rea,
+  ylab=&quot;rate_rea Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_rea Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40),
+  y=c(16.86),
+  labels=c(&quot;D.C.&quot;),
+  pos=1
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-81-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Religion Hate Crime</strong></p>
+<pre class="r"><code># rate_rel Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_rel,
+  ylab=&quot;rate_rel Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_rel Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40, 41.4, 37.75),
+  y=c(1.134, 2.894, 1.884),
+  labels=c(&quot;D.C&quot;, &quot;New Jersey&quot;, &quot;New York&quot;),
+  pos=c(3, 1, 1)
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-82-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Sexual Orientation Hate Crime</strong></p>
+<pre class="r"><code># rate_sex Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_sex,
+  ylab=&quot;rate_sex Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_sex Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40),
+  y=c(9.21),
+  labels=c(&quot;D.C.&quot;),
+  pos=1
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-83-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Disability Hate Crime</strong></p>
+<pre class="r"><code># rate_dis Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_dis,
+  ylab=&quot;rate_dis Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_dis Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40, 57.60, 53.27),
+  y=c(0.142, 0.680, 0.565),
+  labels=c(&quot;D.C.&quot;, &quot;Mississippi&quot;, &quot;Ohio&quot;),
+  pos=c(3, 1, 1)
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-84-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Gender Hate Crime</strong></p>
+<pre class="r"><code># rate_gen Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_gen,
+  ylab=&quot;rate_gen Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_gen Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40, 47.84),
+  y=c(0.283, 0.151),
+  labels=c(&quot;D.C.&quot;, &quot;Michigan&quot;),
+  pos=c(1, 1)
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-85-1.png" width="672" /></p>
+<p><strong>Percentage that Voted Republican vs. Rate of Gender Identity Hate Crime</strong></p>
+<pre class="r"><code># rate_gei Hate Crimes vs. Political Affiliation
+scatter.smooth(
+  x=dat$perc_rep,
+  xlab=&quot;Percentage Republican&quot;,
+  y=dat$rate_gei,
+  ylab=&quot;rate_gei Hate Crimes Reported (per 100,000)&quot;,
+  main=&quot;rate_gei Hate Crimes vs. Political Affiliation&quot;
+)
+
+text(
+  x=c(5.40),
+  y=c(3.826),
+  labels=c(&quot;D.C.&quot;),
+  pos=1
+)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-86-1.png" width="672" /></p>
+</div>
+<div id="modeling-the-data-and-diagnostics" class="section level2">
+<h2><em>3 Modeling the Data and Diagnostics</em></h2>
+<p>To answer our research question, we performed linear regressions on each of the seven categories of hate crimes that the FBI collects data for. A linear regression will allow us to see if there is an association between an increase in Trump voters and incidents of hate crimes. We performed individual regressions to see if any of the categories had a different trend or significance level. We know that breaking down the categories will make our sample smaller so our linear regression models for the specific categories will not be as strong or reliable as the linear regression for total hate crime rate.</p>
+</div>
+<div id="assumptions" class="section level2">
+<h2><em>3.1 Assumptions</em></h2>
+<pre class="r"><code>reg.output.total &lt;- lm(formula = rate ~ perc_rep, data = dat) 
+summary(reg.output.total)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = rate ~ perc_rep, data = dat)
+## 
+## Residuals:
+##    Min     1Q Median     3Q    Max 
+## -6.578 -1.952 -0.296  1.729 18.344 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)  14.3762     2.1155   6.796 1.51e-08 ***
+## perc_rep     -0.2326     0.0420  -5.538 1.26e-06 ***
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 3.519 on 48 degrees of freedom
+## Multiple R-squared:  0.3899, Adjusted R-squared:  0.3771 
+## F-statistic: 30.67 on 1 and 48 DF,  p-value: 1.263e-06</code></pre>
+<pre class="r"><code>length(dat$perc_rep)</code></pre>
+<pre><code>## [1] 50</code></pre>
+<pre class="r"><code>length(reg.output.total$residuals)</code></pre>
+<pre><code>## [1] 50</code></pre>
+<pre class="r"><code>plot(dat$perc_rep, reg.output.total$residuals, ylim=c(-15,15), main=&quot;Residuals vs. x&quot;, xlab=&quot;x, Proportion of Republican Voters&quot;, ylab=&quot;Residuals&quot;)
+abline(h = 0, lty=&quot;dashed&quot;)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-88-1.png" width="672" /></p>
+<p><strong>Figure 3.11</strong></p>
+<pre class="r"><code>plot(reg.output.total, which=1)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-89-1.png" width="672" /></p>
+<p><strong>Figure 3.12</strong></p>
+<pre class="r"><code>plot(reg.output.total, which=3)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-90-1.png" width="672" /></p>
+<p><strong>Figure 3.13</strong></p>
+<pre class="r"><code>plot(reg.output.total, which=5)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-91-1.png" width="672" /> <strong>Figure 3.14</strong></p>
+<pre class="r"><code>plot(reg.output.total, which=2)</code></pre>
+<p><img src="Assignments_files/figure-html/unnamed-chunk-92-1.png" width="672" /></p>
+<p>Diagnostic plots for the linear regression model indicate that the four assumptions of linearity, independence, homoscedasticity, and normal population were not satisfied for any of the categories of hate crime that we analyzed. To explain the diagnostic plots, we will analyze the plots for the total hate crime rate. Fig 3.11 is the “Residuals vs x,” which shows that as the percentage of Trump voters increases, the value of the residuals also increases. Since this trend is a pattern, it does not satisfy the linearity assumption, which needs to show a “Residuals vs x” plot with no distinguishable pattern. Fig 3.12 is the “Residuals vs. Fitted” plot, which shows a red line that appears to have a negative linear trend, indicating that the linearity assumption is not satisfied since the average value of the residuals needs to be flat for a linear trend. There is no diagnostic plot for the independence assumption, but we can assume this assumption is satisfied because the data is not a time series, and there are no discernible signs of clumping in the plots. Fig 3.13 is the scale location plot for the homoscedasticity assumption. The red line in the plot shows an almost exponential trend which indicates that the residuals have non-constant variance. Therefore the homoscedasticity assumption is not satisfied. Fig 3.14 and Fig 3.15 are the “Residuals vs. Leverage” plots and the “Normal Q-Q” plots for the normal population assumption. The “Residuals vs Leverage” plot in Fig 3.14 indicates that point 50 (Washington D.C) is a significant outlier in the data set. Fig 3.15 is the normal q-q plot that shows an almost straight line, but the outlier pushes the trend to be slightly right-skewed. The normal population assumption is not satisfied due to the outlier at point 50, although the q-q plot is decent. The diagnostic plots for the other categories of hate crimes also follow similar trends, so we can conclude that the linear model is not a good analytic model for the data.</p>
+</div>
+<div id="results" class="section level2">
+<h2><em>4 Results</em></h2>
+<p>We observed statistically significant p-values at the 0.01 alpha level for all categories of hate crimes except in hate crimes pertaining to disabilities. This means that the association between hate crime rates and the percentage of Trump voters is not due to chance, and the null hypothesis could be rejected if the linear model were a good fit for the data. For the total hate crime rate, we observed a coefficient of -0.23276 which means that for every one percent increase in Trump supporters, there is a 0.23276 (with a standard error of 0.04208) decrease in total hate crimes per 100,000 people. We observed a negative coefficient for five hate crime categories, with race/ethnicity/ancestry-based hate crimes having the largest decrease of -2.9208 per 100,000 people. The disability category has a coefficient of 0.0003827 which means that for every one percent increase in Trump voters, there is an increase in the rate of hate crimes pertaining to disabilities by 0.0003827 per 100,000 people. However, this category had a p-value of 0.8, which is not statistically significant, so the association we see could be due to chance. All of the adjusted R-squared values we observed were under 0.5, which means that the model is not a good fit for the data because it cannot account for much of the variation in the data. Therefore, we cannot conclude an association between the percentage of Trump voters and the hate crime rate based on the linear model.</p>
+</div>
+<div id="discussionanalysis" class="section level2">
+<h2><em>5 Discussion/analysis</em></h2>
+<p>In our study, there were confounding variables that impacted our results. As shown in the DAG below, the two main confounding variables are non-voters and underreporting of crimes.</p>
+<div class="figure">
+<img src="/Users/nikoamber/Library/Mobile%20Documents/com~apple~CloudDocs/Penn/Freshman%20Fall/Criminology/Final%20Project%20Write-Up.png" alt="" />
+<p class="caption">DAG</p>
+</div>
+<p>Non-voters impacted our data in multiple ways. When we did our analysis and EDA, we only looked at members of the electorate who voted for the Republican and Democratic parties. We only performed our analysis using the percentage of Republican voters in the 2020 election. This means our analysis did not take into account constituents who voted for alternate parties. There were over 2,000,000 votes for third party and write in candidates (FEC, 2021). Additionally, we did not account for non-voters in the U.S. Only 67% of eligible voters casted a ballot in the 2020 election (Fabina, 2021). We did not take into account residents and others who cannot vote.</p>
+<p>As mentioned above, reporting to the UCR is voluntary. More importantly, there is a large hate crime reporting gap (COPS Office, 2013). This works in many ways. First: surveys done by the US Department of Justice have uncovered that many people who are victims of hate crimes do not report. According to the DOJ, victims do not believe they will be aided by law enforcement. Additionally, many crimes that are motivated by hate are not reported as such, as it is difficult for officers to discern whether a crime is motivated by hate. It is also much more work to convict and prove a crime was motivated by hate (Davis, 2021). According to the International Association of Police Chiefs, less than ⅔ of the over 250,000 hate crimes committed per year are reported (Davis, 2021).</p>
+<p>In the future research, we would look more closely at the gaps in hate crime reporting. Rather than analyzing the hate crime data, we would analyze the connection between states that voted majority Republican and the percentage of jurisdictions that reported. We would utilize linear regression again to establish if there is a causal relationship. A diff-in-diff model could also be interesting to analyze the “Trump Effect” on hate crime rates, but existing data might be insufficient for that.</p>
+</div>
+<div id="bibliography" class="section level2">
+<h2><em>6 Bibliography</em></h2>
+<p>COPS Office. (2013, May). Hate Crime Reporting – Working to Close the Gap. Retrieved from <a href="https://cops.usdoj.gov/html/dispatch/05-2013/hate_crime_reporting.asp" class="uri">https://cops.usdoj.gov/html/dispatch/05-2013/hate_crime_reporting.asp</a></p>
+<p>Davis, R. L. (2021). The Hate Crimes Reporting Gap: Low Numbers Keep Tensions High<br />
+Retrieved from <a href="https://www.policechiefmagazine.org/the-hate-crimes/" class="uri">https://www.policechiefmagazine.org/the-hate-crimes/</a></p>
+<p>Fabina, J. (2021, April 29). Despite pandemic challenges, 2020 election had largest increase in voting between presidential elections on record. Retrieved from <a href="https://www.census.gov/library/stories/2021/04/record-high-turnout-in-2020-general-elec" class="uri">https://www.census.gov/library/stories/2021/04/record-high-turnout-in-2020-general-elec</a> tion.html</p>
+<p>Federal Bureau of Investigation. (2019, October 29). Incidents and offenses. Retrieved from <a href="https://ucr.fbi.gov/hate-crime/2019/topic-pages/incidents-and-offenses" class="uri">https://ucr.fbi.gov/hate-crime/2019/topic-pages/incidents-and-offenses</a></p>
+<p>Federal Election Commission. (2021, January 28). Official 2020 presidential general election results. Retrieved from <a href="https://www.fec.gov/resources/cms-content/documents/2020presgeresults.pdf" class="uri">https://www.fec.gov/resources/cms-content/documents/2020presgeresults.pdf</a></p>
+<p>Rushin, S., &amp; Edwards, G. S. (2018). The effect of president Trump’s election on hate crimes. SSRN Electronic Journal. <a href="https://doi.org/10.2139/ssrn.3102652" class="uri">https://doi.org/10.2139/ssrn.3102652</a></p>
+<p>Schaffner, B. F., Macwilliams, M., &amp; Nteta, T. (2018). Understanding white polarization in the 2016 vote for president: The sobering role of racism and sexism. Political Science Quarterly, 133(1), 9–34. <a href="https://doi.org/10.1002/polq.12737" class="uri">https://doi.org/10.1002/polq.12737</a></p>
+<p>Villarreal, D. (2020, November 17). Hate crimes under Trump surged nearly 20 percent says FBI report. Newsweek. Retrieved December 12, 2021, from <a href="https://www.newsweek.com/hate-crimes-under-trump-surged-nearly-20-percent-says-fbi-report-1547870" class="uri">https://www.newsweek.com/hate-crimes-under-trump-surged-nearly-20-percent-says-fbi-report-1547870</a>.</p>
+</div>
+</div>
+
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
