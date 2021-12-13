@@ -1,14 +1,11 @@
 ---
 title: "Assignments"
 output:
-html_document:
-  toc: yes
-  toc_float: yes
-  collapsed: no
-  number_sections: no
-    toc_depth: 1
-    pdf_document:
-    toc: true
+  html_document:
+    toc: yes
+    toc_float: yes
+    collapsed: no
+    number_sections: no
     toc_depth: 1
 ---
 
